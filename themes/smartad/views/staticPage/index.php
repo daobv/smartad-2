@@ -3,12 +3,19 @@
 /* @var $dataProvider CActiveDataProvider */
 
 ?>
-<div class="container marketing">
-    <h1>Static Pages</h1>
+<div class="container">
 
-    <?php $this->widget('zii.widgets.CListView', array(
-        'dataProvider'=>$dataProvider,
-        'itemView'=>'_view',
-    )); ?>
-</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class = "col-md-7" style="padding-left:0px;padding-right:0px">
+                <h4 style="margin-top: 1px"><i class="fa fa-list-alt"> </i> <?php echo $staticPage->title; ?><i style="float: left; padding-top: 6px"></i> </h4>
+                <div class="static-content">
+                    <?php echo $staticPage->content;?>
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-left:0px">
+                <h4 style="margin-top: 1px"><i class="fa fa-app"></i>Bài Viết Nổi Bật<i style="float:left; padding-top: 6px"></i> </h4>
+            </div>
+        </div>
 
+    </div>

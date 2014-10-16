@@ -178,7 +178,10 @@ class Category extends Model
 
     //trả về name của category theo category_id
     public function getCategoryNameById($category_id){
-        return Category::model()->findByPk($category_id)->name;
+        $category = Category::model()->findByPk($category_id);
+        if(!$category)
+            return "Undefined";
+        return $category->name;
     }
     /**
      * 2 hàm này trả về 1 mảng bao gồm các category_id lấy theo thứ tự từ sub-category level cuối
@@ -194,4 +197,5 @@ class Category extends Model
         $this->_items = null;
         return $this->getReverseArrayChildren($model);
     }
+
 }

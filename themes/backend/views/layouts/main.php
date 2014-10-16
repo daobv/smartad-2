@@ -56,6 +56,7 @@
         <li class="dash"><a href="#" title="" class="active"><span>Quản Lý Trang</span></a>
             <ul class="sub">
                 <li><a href="<?php echo Yii::app()->createUrl('admin/announcement/admin');?>" title="">Thông báo</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('admin/post/admin');?>" title="">Bài viết</a></li>
                 <li><a href="<?php echo Yii::app()->createUrl('admin/slider/admin');?>" title="">Cài đặt slide</a></li>
                 <li><a href="<?php echo Yii::app()->createUrl('admin/staticPage/admin');?>" title="">Trang cố định</a></li>
                 <li><a href="<?php echo Yii::app()->createUrl('admin/email/list');?>" title="">Mẫu email</a></li>

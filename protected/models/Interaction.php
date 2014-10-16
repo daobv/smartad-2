@@ -126,7 +126,7 @@ class Interaction extends CActiveRecord
         return $sum;
     }
     public function getInteractionByDate($user_id,$from,$to){
-        $interaction = Interaction::model()->findAllBySql("SELECT SUM(day_click) as day_click,
+        $interaction = Interaction::model()->findBySql("SELECT SUM(day_click) as day_click,
         SUM(success) as success, SUM(revenue) as revenue , date FROM ".$this->tableName()." WHERE user_id = ".$user_id. " AND date <= ".$to. " && date >= ".$from." GROUP BY date");
         return $interaction;
     }

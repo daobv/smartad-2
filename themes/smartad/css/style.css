@@ -287,32 +287,30 @@ footer a:hover {
     margin-left: 5px;
 }
 
-/*---Login---*/
-.login_w {
-    background: url(../images/login_bg.jpg) repeat center bottom #000;
-    min-height: 700px;
+/*---category---*/
+ul .list-news{
+    padding-left: 0px; font-size: 12px
 }
-
-.logo_login {
-    text-align: center;
-}
-
-.login_wrap {
-    padding: 20px;
-    background: #fff;
-    width: 400px;
-    margin-top: 80px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-}
-
-.login h2 {
-    text-align: center;
-}
-
-.login_w .btn-lg {
-    padding-top: 10px;
+.list-news li {
+    background: #f1f1f1;
+    margin-bottom: 5px;
+    overflow: hidden;
+    border-radius: 6px;
     padding-bottom: 10px;
+    list-style: none;
+}
+.list-news .image-avatar {
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 0px;
+    width: 7%;
+}
+ul.list-news li .desc {
+    text-align: justify;
+    font-size: 17px;
+    padding-top: 15px;
 }
 
 .colorgraph {

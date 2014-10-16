@@ -30,6 +30,7 @@ class StaticPageController extends Controller
 		if(isset($_POST['StaticPage']))
 		{
 			$model->attributes=$_POST['StaticPage'];
+            $model->author = Yii::app()->user->id;
             if($_POST['StaticPage']['slug'] == ""){
                 $model->slug = $model->getSlug($model->title);
             }

@@ -23,7 +23,7 @@ class AnnouncementController extends Controller
 	{
 		return array(
             array('allow',
-                'actions'=>array('admin','create', 'logout', 'update', 'delete'),
+                'actions'=>array('admin','create', 'update', 'delete'),
                 'users'=>array('@'),
             ),
             array('deny', // deny all users
@@ -48,6 +48,7 @@ class AnnouncementController extends Controller
         {
             $model->attributes=$_POST['StaticPage'];
             $model->type = 1;
+            $model->author = Yii::app()->user->id;
             if($_POST['StaticPage']['slug'] == ""){
                 $model->slug = $model->getSlug();
             }

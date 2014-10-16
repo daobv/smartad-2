@@ -4,11 +4,12 @@ Yii::import('zii.widgets.CPortlet');
 class ApplicationTable extends CPortlet
 {
     protected function renderContent(){
-        $from = Yii::app()->getRequest()->getParam("from") ? null : date('ymd',time());
-        $to = Yii::app()->getRequest()->getParam("from") ? null : date('ymd',time());
+        $from = (Yii::app()->getRequest()->getParam("from") == null) ? date('ymd',strtotime('-7 days')) : Yii::app()->getRequest()->getParam("from");
+
+        $to = (Yii::app()->getRequest()->getParam("to") ==  null) ? date('ymd',time()) : Yii::app()->getRequest()->getParam("to");
         $user_id = Yii::app()->user->id;
         $data = array(0=>array('app_id'=>0,'day_click'=>0,'revenue'=>0));
-            $interactions = Interaction::model()->getInteractionByUser($user_id,$from,$to);
+           $interactions = Interaction::model()->getInteractionByUser($user_id,$from,$to);
             if(count($interactions) > 0){
                 foreach($interactions as $key=> $interaction){
                     if($interactions){
@@ -19,7 +20,6 @@ class ApplicationTable extends CPortlet
                     }
                 }
             }
-
         $this->render('applicationTable',array('data'=>$data));
     }
 

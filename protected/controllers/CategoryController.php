@@ -31,10 +31,7 @@ class CategoryController extends Controller
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
+
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
@@ -120,11 +117,20 @@ class CategoryController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	public function actionIndex($slug)
 	{
-		$dataProvider=new CActiveDataProvider('Category');
+        $category = Category::model()->findByAttributes(array('slug'=>$slug));
+        if(!$category){
+            throw new CHttpException(404,'The requested page does not exist.');
+        }
+        $staticPage = new StaticPage();
+        $staticPage->static_category = $category->id;
+        $staticPage->static_type="post";
+        $posts= $staticPage->searchPost();
+
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'category'=>$category,
+            'posts'=>$posts
 		));
 	}
 

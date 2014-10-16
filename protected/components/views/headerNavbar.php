@@ -35,7 +35,7 @@
                     </a>
                         <ul class="dropdown-menu">
                                 <li><a href="">Thông Tin Tài Khoản</a></li>
-                                <li><a href="">Xem Báo Cáo</a></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('user/revenue')?>">Xem Báo Cáo</a></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('user/logout')?>">Thoát</a></li>
                         </ul>
                 </li>

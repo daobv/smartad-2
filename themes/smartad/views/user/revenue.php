@@ -54,13 +54,10 @@
                             },
                             function (start, end) {
                                 $('#report-rang-custom').html(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
-                                var start_date = start.format('YYYY-MM-DD');
-                                var end_date = end.format('YYYY-MM-DD');
+                                var start_date = start.format('YYMMDD');
+                                var end_date = end.format('YYMMDD');
+                               window.location.replace("<?php echo Yii::app()->createUrl('user/revenue'); ?>?from="+start_date+"&&to="+end_date);
 
-                                $('#statistic-grid').yiiGridView('update', {
-                                    url: "<?php //echo Yii::app()->createUrl('statistic/admin',array('id'=>$_GET['id'])); ?>",
-                                    data: "start_date=" + convert_date(start_date) + "&end_date=" + convert_date(end_date)
-                                });
                             }
                             /*function (start, end) {
                              $('#filter-date').val('specific');
@@ -83,10 +80,10 @@
                 <div class="col-md-5 col-xs-12 pull-right" style="padding-top: 5px">
                     <div class="row">
                         <div class="col-md-6 price-header">
-                            <a href="http://pub.adflex.vn/report.html">HÔM NAY<span class="number"> <?php echo $todayRevenue; ?></php></span> VNĐ</a>
+                            <a href="<?php echo Yii::app()->createUrl('user/revenue',array('from'=>date('ymd'),'to'=>date('ymd',time()))); ?>">HÔM NAY<span class="number"> <?php echo $todayRevenue; ?></php></span> VNĐ</a>
                         </div>
                         <div class="col-md-6 price-header" style="color: #6fa4d8">
-                            <a href="http://pub.adflex.vn/report.html?type=month&amp;startdate=2014-10-01&amp;enddate=2014-10-14">THÁNG
+                            <a href="<?php echo Yii::app()->createUrl('user/revenue',array('from'=>date('ymd',strtotime('-1 month')),'to'=>date('ymd',time()))); ?>">THÁNG
                                 NÀY <span class="number"> <?php echo $monthRevenue; ?></span> VNĐ</a>
                         </div>
                     </div>

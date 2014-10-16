@@ -8,7 +8,8 @@ return CMap::mergeArray(
                 'urlFormat' => 'path',
                 'showScriptName' => false,
                 'rules'     => array(
-                    'chuyen-muc/<slug>' => 'staticPage/index',
+                    'chuyen-muc/<slug>' => 'category/index',
+                    'static-page/<slug>' => 'staticPage/index',
                     'dang-nhap' => 'user/login',
                 ),
             ),

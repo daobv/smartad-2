@@ -122,10 +122,12 @@ class StaticPageController extends Controller
 	 */
 	public function actionIndex($slug)
 	{
+        $staticPage = StaticPage::model()->findByAttributes(array('slug'=>$slug,'static_type'=>'page','boolean'=>1));
+		if(!$staticPage)
+            throw new CHttpException(404,'The requested page does not exist.');
 
-		$dataProvider=new CActiveDataProvider('StaticPage');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'staticPage'=>$staticPage,
 		));
 	}
 

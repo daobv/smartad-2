@@ -1,32 +1,36 @@
-<div class="wrapper">
-    <div class="content">
-        <div class="nav-content">
-            <?php $form = $this->beginWidget('CActiveForm', array(
-                'id' => 'login',
-                'enableClientValidation' => true,
-                'enableAjaxValidation' => true,
-                'clientOptions' => array(
-                    'validateOnSubmit' => true,
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+
+            <?php $form=$this->beginWidget('CActiveForm', array(
+                'id'=>'login-form',
+                'enableClientValidation'=>true,
+                'clientOptions'=>array(
+                    'validateOnSubmit'=>true,
                 ),
-                'htmlOptions'=>array('class'=>'login-form'),
+                'action'=>Yii::app()->createUrl('user/login')
             )); ?>
-            <div class="header">
-                <h1>Đăng nhập</h1>
-            </div>
-            <div class="content">
-                <input name="username" type="text" class="input username" placeholder="Tên đăng nhập"/>
 
-                <div class="user-icon"></div>
-                <input name="password" type="password" class="input password" placeholder="Mật khẩu"/>
-
-                <div class="pass-icon"></div>
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail2"><?php echo $form->labelEx($model,'username'); ?></label>
+                <?php echo $form->textField($model,'username',array('class'=>'form-control',)); ?>
+                <?php echo $form->error($model,'username'); ?>
             </div>
-            <div class="footer">
-                <div class="rd"><input type="checkbox" class="radio"/><span>Nhớ mật khẩu</span></div>
-                <a href="" class="qmk">Quên mật khẩu?</a>
-                <input type="submit" name="submit" value="Login" class="button"/>
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword2"><?php echo $form->labelEx($model,'password'); ?></label>
+                <?php echo $form->passwordField($model,'password',array('class'=>'form-control',)); ?>
+                <?php echo $form->error($model,'username'); ?>
             </div>
-            </form>
+            <div class="checkbox">
+                <?php echo $form->checkBox($model,'rememberMe'); ?>
+                <label>
+                    <?php echo $form->label($model,'rememberMe'); ?>
+                    <?php echo $form->error($model,'rememberMe'); ?>
+                </label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block">Đăng nhập</button>
+            </div>
             <?php $this->endWidget(); ?>
         </div>
     </div>

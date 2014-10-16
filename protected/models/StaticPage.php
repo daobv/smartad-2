@@ -12,6 +12,8 @@
  * @property string $date
  * @property integer $author
  * @property integer $type
+ * @property integer $static_type
+ * @property integer $static_category
  * @property integer $boolean
  */
 class StaticPage extends Model
@@ -37,7 +39,7 @@ class StaticPage extends Model
 			array('content, date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, slug, description, content, date, author, type, boolean', 'safe', 'on'=>'search'),
+			array('id, title, slug, description, content, date, author, type, static_type,static_category,boolean', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -98,18 +100,40 @@ class StaticPage extends Model
         if($this->type == ""){
             $criteria->compare('type',"<> 1");
             $criteria->compare('type',"<> 9");
+            $criteria->compare('type',"<> 0");
         }else{
             $criteria->compare('type',$this->type,true);
         }
 
         $criteria->compare('type',$this->type);
+        $criteria->compare('static_type',$this->static_type);
+        $criteria->compare('static_category',$this->static_category);
 		$criteria->compare('boolean',$this->boolean);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+    public function searchPost()
+    {
+        $criteria=new CDbCriteria;
 
+        $criteria->compare('id',$this->id);
+        $criteria->compare('title',$this->title,true);
+        $criteria->compare('slug',$this->slug,true);
+        $criteria->compare('description',$this->description,true);
+        $criteria->compare('content',$this->content,true);
+        $criteria->compare('date',$this->date,true);
+        $criteria->compare('author',$this->author);
+        $criteria->compare('type',0,true);
+        $criteria->compare('static_type','post',true);
+        $criteria->compare('static_category',$this->static_category);
+        $criteria->compare('boolean',$this->boolean);
+
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+        ));
+    }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
