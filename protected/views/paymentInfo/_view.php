@@ -13,6 +13,10 @@
 	<?php echo CHtml::encode($data->user_id); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('identity_card')); ?>:</b>
+	<?php echo CHtml::encode($data->identity_card); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
 	<?php echo CHtml::encode($data->type); ?>
 	<br />

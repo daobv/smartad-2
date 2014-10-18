@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'payment_info':
  * @property integer $id
  * @property integer $user_id
+ * @property integer $identity_card
  * @property string $type
  * @property string $number
  * @property string $owner
@@ -30,11 +31,11 @@ class PaymentInfo extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id, type, number', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, identity_card', 'numerical', 'integerOnly'=>true),
 			array('type, number, owner, branch', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, type, number, owner, branch', 'safe', 'on'=>'search'),
+			array('id, user_id, identity_card, type, number, owner, branch', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +58,7 @@ class PaymentInfo extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'user_id' => 'User',
+			'identity_card' => 'Identity Card',
 			'type' => 'Type',
 			'number' => 'Number',
 			'owner' => 'Owner',
@@ -84,6 +86,7 @@ class PaymentInfo extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('identity_card',$this->identity_card);
 		$criteria->compare('type',$this->type,true);
 		$criteria->compare('number',$this->number,true);
 		$criteria->compare('owner',$this->owner,true);

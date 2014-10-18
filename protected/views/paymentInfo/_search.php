@@ -22,6 +22,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'identity_card'); ?>
+		<?php echo $form->textField($model,'identity_card'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'type'); ?>
 		<?php echo $form->textField($model,'type',array('size'=>60,'maxlength'=>255)); ?>
 	</div>

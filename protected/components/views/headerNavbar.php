@@ -81,7 +81,7 @@
                     </li>
                 </ul>
             </li>
-            <li><button type="button" class="btn btn-lg btn-default">Đăng ký</button></li>
+            <li><button type="button" onclick="window.location='<?php echo Yii::app()->createUrl("user/register")?>';" class="btn btn-lg btn-default">Đăng ký</button></li>
             <?php endif;?>
         </ul><!--/.navbar-collapse -->
         </div>

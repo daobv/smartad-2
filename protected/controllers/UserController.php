@@ -28,7 +28,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','login'),
+				'actions'=>array('index','view','login','register'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -170,6 +170,15 @@ class UserController extends Controller
 			Yii::app()->end();
 		}
 	}
+    public function actionRegister(){
+        $model = new RegisterForm();
+        $sent = false;
+        $this->performAjaxValidation($model);
+        if(isset($_POST['RegisterForm'])){
+
+        }
+        $this->render("register",array('model'=>$model));
+    }
     public function actionLogin()
     {
 

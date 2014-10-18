@@ -26,6 +26,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'identity_card'); ?>
+		<?php echo $form->textField($model,'identity_card'); ?>
+		<?php echo $form->error($model,'identity_card'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'type'); ?>
 		<?php echo $form->textField($model,'type',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'type'); ?>
