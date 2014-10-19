@@ -97,7 +97,7 @@
             </div>
             <div class="col-md-5 text-right">
                 <div class="image_register">
-
+                    <img src="http://pub.adflex.vn/default/images/img_phone.png" class="img-responsive">
                 </div>
             </div>
         </div>

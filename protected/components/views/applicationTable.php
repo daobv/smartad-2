@@ -8,7 +8,7 @@
             <th width="10%" class="number">Hình Thức</th>
             <th width="10%" class="number">Action</th>
             <th width="10%" class="number">Clicks</th>
-            <th width="15%" class="number">CTR</th>
+
             <th width="20%" class="number">Doanh Thu</th>
         </tr>
         </thead>
@@ -32,9 +32,7 @@
             <td>
                 <?php echo $value['day_click']; ?>
             </td>
-            <td>
-                <?php if($value['success'] ==0) echo "0.00"; else printf("%4.2f",(float)($value['success']/$value['day_click']*100))?>%
-            </td>
+
             <td>
                 <?php printf("%3.0f",$value['revenue']);?> VNĐ
             </td>

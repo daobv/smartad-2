@@ -15,7 +15,7 @@ class RegisterForm extends  CFormModel{
             array('username,email,password,rePassword,phoneNumber', 'required','message'=>"Vui lòng nhập {attribute}"),
             array('username', 'length', 'min'=>3,'max'=>30,'tooLong'=>'Tên không được dài hơn 30 ký tự','tooShort'=>'Tên không được ngắn hơn 3 ký tự'),
             array('password', 'length', 'min'=>3,'max'=>10,'tooLong'=>'Mật khẩu không được dài hơn 10 ký tự','tooShort'=>'Tên không được ngắn hơn 3 ký tự'),
-            array('identity_card,phoneNumber','numerical', 'integerOnly'=>true),
+            array('identity_card,phoneNumber','numerical', 'integerOnly'=>true,'message'=>'Số điện thoại không hợp lệ'),
             array('acceptRules', 'boolean'),
             array('acceptRules','required','message'=>"Bạn chưa đồng ý với điều khoản của chúng tôi"),
             array('username','unique','enableClientValidation'=>true,
@@ -31,8 +31,8 @@ class RegisterForm extends  CFormModel{
     }
     public function attributeLabels(){
         return array(
-            'full_name'=>'tên đăng nhập',
-            'username'=>'email đăng nhập',
+            'full_name'=>'họ và tên',
+            'username'=>'tên đăng nhập',
             'password'=>'mật Khẩu',
             'identity_card'=>'số CMT',
             'rePassword'=>"xác nhận mật khẩu",

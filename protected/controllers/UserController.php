@@ -191,7 +191,19 @@ class UserController extends Controller
         $sent = false;
         $this->performAjaxValidation($model);
         if(isset($_POST['RegisterForm'])){
-
+            $user = new User();
+            $user->attributes = $_POST['RegisterForm'];
+            $user->password = $user->hashPassword($user->password);
+            $user->user_role = 6;
+            if($user->save()){
+                Yii::app()->user->setFlash('register-success', "Chúc mừng bạn đã đăng ký thành công tài khoản tại hệ thống SmartAd!");
+                $login = new Login;
+                $login->attributes = $user->attributes;
+                $login->password = $_POST['RegisterForm']['password'];
+                if($login->validate() && $login->login()){
+                    $this->redirect(Yii::app()->createUrl('user/revenue'));
+                }
+            }
         }
         $this->render("register",array('model'=>$model));
     }

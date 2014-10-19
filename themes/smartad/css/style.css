@@ -684,6 +684,16 @@ a:active {
     border: 2px solid #e7e5e5;
     margin: auto;
 }
+.head-message {
+    padding-top: 5px;
+    background: #fff;
+    padding-bottom: 4px;
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    border: 2px solid #e7e5e5;
+    margin: auto;
+}
 .col-md-12{
     padding-left: 0px;
     padding-right: 0px;
@@ -756,5 +766,5 @@ table#tableTop5 td {
     border: 2px solid #fff;
 }
 .table-responsive tbody tr td, .table-responsive thead tr th {
-    font-size: 12px !important;
+    font-size: 10px !important;
 }
