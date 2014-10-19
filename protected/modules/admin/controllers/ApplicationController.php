@@ -70,6 +70,7 @@ class ApplicationController extends Controller
 		if(isset($_POST['Application']))
 		{
 			$model->attributes=$_POST['Application'];
+            $model->slug = $model->getSlug($model->slug);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -94,6 +95,7 @@ class ApplicationController extends Controller
 		if(isset($_POST['Application']))
 		{
 			$model->attributes=$_POST['Application'];
+            $model->slug = $model->getSlug($model->slug);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

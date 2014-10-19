@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'application':
  * @property integer $id
  * @property string $name
+ * @property string $slug
  * @property string $image
  * @property string $short_description
  * @property integer $adv_type
@@ -18,10 +19,10 @@
  * @property string $content
  * @property string $link
  * @property double $price
- * @property double $size
+ * @property string $size
  * @property string $registered_date
  */
-class Application extends CActiveRecord
+class Application extends Model
 {
 	/**
 	 * @return string the associated database table name
@@ -39,15 +40,15 @@ class Application extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, image, adv_type, platform_id, appearance_id, status_id, content, link, price, size, registered_date', 'required'),
+			array('name, image, adv_type, platform_id, appearance_id, status_id, content, link, price', 'required'),
 			array('adv_type, platform_id, appearance_id, status_id', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
-			array('name, image', 'length', 'max'=>255),
+			array('name, slug, image, size', 'length', 'max'=>255),
 			array('area, link', 'length', 'max'=>1024),
 			array('short_description, from, to', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, image, short_description, adv_type, platform_id, appearance_id, area, from, to, status_id, content, link, price, size, registered_date', 'safe', 'on'=>'search'),
+			array('id, name, slug, image, short_description, adv_type, platform_id, appearance_id, area, from, to, status_id, content, link, price, size, registered_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,11 +59,11 @@ class Application extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
+        return array(
             'status'=>array(self::BELONGS_TO,'AdvStatus','status_id'),
             'appearance'=>array(self::BELONGS_TO,'AdvApperance','appearance_id'),
             'type'=>array(self::BELONGS_TO,'AdvType','adv_type'),
-		);
+        );
 	}
 
 	/**
@@ -73,6 +74,7 @@ class Application extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'slug' => 'Slug',
 			'image' => 'Image',
 			'short_description' => 'Short Description',
 			'adv_type' => 'Adv Type',
@@ -110,6 +112,7 @@ class Application extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('slug',$this->slug,true);
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('short_description',$this->short_description,true);
 		$criteria->compare('adv_type',$this->adv_type);
@@ -122,7 +125,7 @@ class Application extends CActiveRecord
 		$criteria->compare('content',$this->content,true);
 		$criteria->compare('link',$this->link,true);
 		$criteria->compare('price',$this->price);
-		$criteria->compare('size',$this->size);
+		$criteria->compare('size',$this->size,true);
 		$criteria->compare('registered_date',$this->registered_date,true);
 
 		return new CActiveDataProvider($this, array(

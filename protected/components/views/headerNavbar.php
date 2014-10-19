@@ -29,6 +29,12 @@
             <?php endforeach; ?>
             <?php if(!Yii::app()->user->isGuest):?>
                 <li class="dropdown">
+                    <a href="<?php echo Yii::app()->createUrl("application/index");?>" class="dropdown-toggle" data-toggle="dropdown" >
+                        Kho CPI<b class="caret">
+                        </b>
+                    </a>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
                         Xin chào, <?php echo Yii::app()->user->name;?><b class="caret">
                         </b>
