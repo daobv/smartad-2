@@ -49,10 +49,11 @@ class ApplicationController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
+	public function actionView($slug)
 	{
+        $model= Application::model()->findByAttributes(array('slug'=>$slug));
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
 		));
 	}
 
@@ -122,10 +123,14 @@ class ApplicationController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Application');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+        $model=new Application('search');
+        $model->unsetAttributes();  // clear any default values
+        if(isset($_GET['Application']))
+            $model->attributes=$_GET['Application'];
+
+        $this->render('admin',array(
+            'model'=>$model,
+        ));
 	}
 
 	/**
