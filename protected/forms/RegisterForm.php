@@ -12,28 +12,32 @@ class RegisterForm extends  CFormModel{
     public function rules(){
         return array(
             // username and password are required
-            array('full_name,username,email,password,rePassword,phoneNumber,identity_card', 'required','message'=>"Vui lòng nhập {attribute}"),
+            array('username,email,password,rePassword,phoneNumber', 'required','message'=>"Vui lòng nhập {attribute}"),
+            array('username', 'length', 'min'=>3,'max'=>30,'tooLong'=>'Tên không được dài hơn 30 ký tự','tooShort'=>'Tên không được ngắn hơn 3 ký tự'),
+            array('password', 'length', 'min'=>3,'max'=>10,'tooLong'=>'Mật khẩu không được dài hơn 10 ký tự','tooShort'=>'Tên không được ngắn hơn 3 ký tự'),
+            array('identity_card,phoneNumber','numerical', 'integerOnly'=>true),
             array('acceptRules', 'boolean'),
+            array('acceptRules','required','message'=>"Bạn chưa đồng ý với điều khoản của chúng tôi"),
             array('username','unique','enableClientValidation'=>true,
-                'attributeName'=>'email','className'=>'User','skipOnError'=>false,
+                'attributeName'=>'username','className'=>'User','skipOnError'=>false,
                 'message'=>"'{value}' đã tồn tại"),
             array('email','unique','enableClientValidation'=>true,
                 'attributeName'=>'email','className'=>'User','skipOnError'=>false,
                 'message'=>"'{value}' đã tồn tại"),
             array('rePassword', 'compare', 'compareAttribute'=>'password','message'=>"Mật khẩu không khớp"),
             array('email', 'email', 'allowEmpty'=>false,'message'=>'Email không hợp lệ'),
-            array('verifyCode', 'ext.captchaExtended.CaptchaExtendedValidator', 'allowEmpty'=>!CCaptcha::checkRequirements(),"message"=>"Captcha không hợp lệ"),
+            array('verifyCode', 'CaptchaExtendedValidator', 'allowEmpty'=>!CCaptcha::checkRequirements(),"message"=>"Captcha không hợp lệ"),
         );
     }
     public function attributeLabels(){
         return array(
-            'full_name'=>'Tên',
-            'username'=>'Email Đăng Nhập',
-            'password'=>'Mật Khẩu',
-            'identity_card'=>'Số CMT',
-            'rePassword'=>"Xác Nhận Mật Khẩu",
-            'phoneNumber'=>'Số Điện Thoại',
-            'verifyCode' =>"Mã Captcha",
+            'full_name'=>'tên đăng nhập',
+            'username'=>'email đăng nhập',
+            'password'=>'mật Khẩu',
+            'identity_card'=>'số CMT',
+            'rePassword'=>"xác nhận mật khẩu",
+            'phoneNumber'=>'số Điện Thoại',
+            'verifyCode' =>"mã captcha",
             'acceptRules' => "Đồng Ý"
         );
     }

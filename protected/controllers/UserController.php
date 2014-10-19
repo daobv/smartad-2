@@ -28,7 +28,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','login','register'),
+				'actions'=>array('index','view','login','register','captcha'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -49,6 +49,22 @@ class UserController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
+    public function init(){
+        parent::init();
+        Yii::$classMap = array_merge( Yii::$classMap, array(
+            'CaptchaExtendedAction' => Yii::getPathOfAlias('ext.captchaExtended').DIRECTORY_SEPARATOR.'CaptchaExtendedAction.php',
+            'CaptchaExtendedValidator' => Yii::getPathOfAlias('ext.captchaExtended').DIRECTORY_SEPARATOR.'CaptchaExtendedValidator.php'
+        ));
+    }
+    public function actions(){
+        return array(
+            'captcha'=>array(
+                'class'=>'CaptchaExtendedAction',
+                // if needed, modify settings
+                'mode'=>CaptchaExtendedAction::MODE_MATH,
+            ),
+        );
+    }
 	public function actionView($id)
 	{
 		$this->render('view',array(

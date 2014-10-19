@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl?>/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl?>/css/login.css"/>
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <script src="<?php echo Yii::app()->theme->baseUrl?>/js/jquery.min.js"></script>
+
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="<?php echo Yii::app()->theme->baseUrl?>/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 

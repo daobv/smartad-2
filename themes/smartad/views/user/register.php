@@ -3,68 +3,86 @@
         <div class="col-md-12">
             <div class="col-md-6" style="padding-left: 0px">
                 <?php $form=$this->beginWidget('CActiveForm', array(
-                    'id'=>'register-form',
+                    'id'=>'user-form',
                     'enableClientValidation'=>true,
                     'enableAjaxValidation'=>true,
                     'clientOptions'=>array(
                         'validateOnSubmit'=>true,
                     ),
-                    'htmlOptions'=>array('class'=>'form-register form-login','id'=>'form_register')
+                    'htmlOptions'=>array('class'=>'form-register form-login')
                 )); ?>
                     <fieldset>
                         <div class="form-group">
                             <!--<label class="control-label" for="inputUser">Tên đăng nhập</label> -->
                             <div class="controls">
-                                <?php echo $form->textField($model,'full_name',array('class'=>'form-control','id'=>'inputUser','placeholder'=>'Tên đăng nhập')); ?>
+                                <?php echo $form->textField($model,'username',array('class'=>'form-control','placeholder'=>'Tên đăng nhập')); ?>
                                 <p>
+                                    <?php echo $form->error($model,'username',array('style'=>'color:#d04526')); ?>
                                     <small>Tối thiểu 3-30 ký tự. Chỉ cho phép chữ cái và số.</small>
+
                                 </p>
-                                <?php echo $form->error($model,'full_name',array('style'=>'padding-left:165px;color:#d04526;')); ?>
                             </div>
                         </div>
                         <div class="form-group">
-                            <!-- <label class="control-label" for="inputPass">Mật khẩu</label> -->
                             <div class="controls">
-                                <?php echo $form->passwordField($model,'password',array('class'=>'form-control','id'=>'inputPassword','placeholder'=>'Password')); ?>
+                                <?php echo $form->passwordField($model,'password',array('class'=>'form-control','placeholder'=>'Mật Khẩu')); ?>
                                 <p>
                                     <small>Mật khẩu từ 3 đến 10 ký tự. Chỉ cho phép chữ cái và số.</small>
+                                    <?php echo $form->error($model,'password',array('style'=>'color:#d04526')); ?>
                                 </p>
-                                <?php echo $form->error($model,'password',array('style'=>'padding-left:165px;color:#d04526;')); ?>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="controls">
-                                <?php echo $form->textField($model,'phoneNumber',array('class'=>'form-control','id'=>'inputPhone','placeholder'=>'Số điện thoại')); ?>
+                                <?php echo $form->passwordField($model,'rePassword',array('class'=>'form-control','placeholder'=>'Nhập Lại Mật Khẩu')); ?>
+                                <p>
+                                    <small>Mật khẩu từ 3 đến 10 ký tự. Chỉ cho phép chữ cái và số.</small>
+                                    <?php echo $form->error($model,'rePassword',array('style'=>'color:#d04526')); ?>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="controls">
+                                <?php echo $form->textField($model,'phoneNumber',array('class'=>'form-control','placeholder'=>'Số Điện Thoại')); ?>
                                     <small>Ví dụ: 0988546789, cần nhập đúng số điện thoại của bạn để đảm bảo quyền lợi
                                         của bạn.
                                     </small>
+                                <?php echo $form->error($model,'phoneNumber',array('style'=>'color:#d04526')); ?>
                                 </p>
-                                <?php echo $form->error($model,'phoneNumber',array('style'=>'padding-left:165px;color:#d04526;')); ?>
+
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <!-- <label class="control-label" for="inputEmail">Email</label> -->
                             <div class="controls">
-                                <?php echo $form->textField($model,'email',array('class'=>'form-control','id'=>'inputEmail','placeholder'=>'Email')); ?>
+                                <?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Email')); ?>
                                 <p>
                                     <small>Nhập đúng Email đang dùng để đảm bảo quyền lợi của bạn.</small>
+                                    <?php echo $form->error($model,'email',array('style'=>'color:#d04526')); ?>
                                 </p>
-                                <?php echo $form->error($model,'email',array('style'=>'padding-left:165px;color:#d04526;')); ?>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="controls">
-                                <?php echo $form->textField($model,'identity_card',array('class'=>'form-control','id'=>'so_cmnd','placeholder'=>'Số chứng minh nhân dân')); ?>
+                                <?php $this->widget('CCaptcha'); ?>
+                                <p><small>Vui lòng nhập lại captcha.</small></p>
                             </div>
-                            <?php echo $form->error($model,'identity_card',array('style'=>'padding-left:165px;color:#d04526;')); ?>
                         </div>
                         <div class="form-group">
                             <div class="controls">
-                                <input type="checkbox" name="i_agree" id="i_agree"> <label for="i_agree">Tôi đồng ý với
+                                <?php echo $form->textField($model,'verifyCode',array('class'=>'form-control','placeholder'=>'Nhập lại captcha')); ?>
+                            </div>
+                            <p>
+                                <?php echo $form->error($model,'verifyCode',array('style'=>'color:#d04526')); ?>
+                            </p>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="controls">
+                                <?php echo $form->checkBox($model,'acceptRules'); ?> <label for="i_agree">Tôi đồng ý với
                                     các quy định của SmartAd.</label>
 
-                                <p><label for="i_agree" class="error" style="display:none;"> </label></p>
+                                <p><?php echo $form->error($model,'acceptRules',array('style'=>'color:#d04526')); ?></p>
                             </div>
                         </div>
                         <div class="form-group">
