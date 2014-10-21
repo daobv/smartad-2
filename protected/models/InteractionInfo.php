@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'interaction_info':
  * @property integer $id
+ * @property integer $interaction_id
  * @property integer $status
  * @property string $ref_code
  * @property string $imei
@@ -33,13 +34,13 @@ class InteractionInfo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('hash_code', 'required'),
-			array('status', 'numerical', 'integerOnly'=>true),
+			array('interaction_id, hash_code', 'required'),
+			array('interaction_id, status', 'numerical', 'integerOnly'=>true),
 			array('ref_code, imei, os, ip, phone_number, telco, hash_code', 'length', 'max'=>255),
 			array('time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, status, ref_code, imei, time, os, ip, phone_number, telco, hash_code', 'safe', 'on'=>'search'),
+			array('id, interaction_id, status, ref_code, imei, time, os, ip, phone_number, telco, hash_code', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,6 +62,7 @@ class InteractionInfo extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'interaction_id' => 'Interaction',
 			'status' => 'Status',
 			'ref_code' => 'Ref Code',
 			'imei' => 'Imei',
@@ -92,6 +94,7 @@ class InteractionInfo extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('interaction_id',$this->interaction_id);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('ref_code',$this->ref_code,true);
 		$criteria->compare('imei',$this->imei,true);

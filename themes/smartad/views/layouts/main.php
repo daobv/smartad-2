@@ -7,6 +7,7 @@
     <meta name="description" content="<?php echo Setting::model()->getSetting("meta_description");?>">
     <meta name="keywords" content="<?php echo Setting::model()->getSetting("meta_keywords");?>">
     <meta name="author" content="">
+    <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl?>/js/jquery.js" ></script>
     <title><?php echo Setting::model()->getSetting("title"); ?></title>
     <!-- Bootstrap core CSS -->
     <link href="<?php echo Yii::app()->theme->baseUrl?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">

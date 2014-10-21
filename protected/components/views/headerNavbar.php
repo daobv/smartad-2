@@ -29,7 +29,7 @@
             <?php endforeach; ?>
             <?php if(!Yii::app()->user->isGuest):?>
                 <li class="dropdown">
-                    <a href="<?php echo Yii::app()->createUrl("application/index");?>" class="dropdown-toggle" data-toggle="dropdown" >
+                    <a href="<?php echo Yii::app()->createUrl("application/");?>" >
                         Kho CPI<b class="caret">
                         </b>
                     </a>

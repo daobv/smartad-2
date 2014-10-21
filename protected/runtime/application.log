@@ -3376,3 +3376,1089 @@ Stack trace:
 REQUEST_URI=/index.php/user/revenue
 HTTP_REFERER=http://smartad.local/
 ---
+2014/10/16 10:36:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'smart_ad.category' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `category`.
+in /var/www/smartad/protected/components/HeaderNavbar.php (11)
+in /var/www/smartad/protected/components/HeaderNavbar.php (8)
+in /var/www/smartad/themes/smartad/views/layouts/main.php (33)
+2014/10/16 10:36:02 [error] [exception.CDbException] exception 'CDbException' with message 'The table "category" for active record class "Category" cannot be found in the database.' in /var/www/framework/db/ar/CActiveRecord.php:2383
+Stack trace:
+#0 /var/www/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Category))
+#1 /var/www/framework/db/ar/CActiveRecord.php(661): CActiveRecord->getMetaData()
+#2 /var/www/framework/db/ar/CActiveRecord.php(1538): CActiveRecord->getTableSchema()
+#3 /var/www/smartad/protected/components/HeaderNavbar.php(11): CActiveRecord->findAllByAttributes(Array)
+#4 /var/www/smartad/protected/components/HeaderNavbar.php(8): HeaderNavbar->getAllCatagories()
+#5 /var/www/framework/zii/widgets/CPortlet.php(97): HeaderNavbar->renderContent()
+#6 /var/www/framework/web/CBaseController.php(181): CPortlet->run()
+#7 /var/www/smartad/themes/smartad/views/layouts/main.php(33): CBaseController->widget('HeaderNavbar')
+#8 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#9 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#10 /var/www/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#11 /var/www/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#12 /var/www/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#13 /var/www/framework/web/CBaseController.php(214): COutputProcessor->run()
+#14 /var/www/framework/web/CBaseController.php(308): CBaseController->endWidget('CContentDecorat...')
+#15 /var/www/smartad/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#16 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#17 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#18 /var/www/framework/web/CController.php(784): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#19 /var/www/smartad/protected/controllers/IndexController.php(24): CController->render('index')
+#20 /var/www/framework/web/actions/CInlineAction.php(49): IndexController->actionIndex()
+#21 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#22 /var/www/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#23 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/framework/web/CWebApplication.php(282): CController->run('')
+#25 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#26 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#27 /var/www/smartad/index.php(14): CApplication->run()
+#28 {main}
+REQUEST_URI=/
+---
+2014/10/16 10:36:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'smart_ad.category' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `category`.
+in /var/www/smartad/protected/components/HeaderNavbar.php (11)
+in /var/www/smartad/protected/components/HeaderNavbar.php (8)
+in /var/www/smartad/themes/smartad/views/layouts/main.php (33)
+2014/10/16 10:36:03 [error] [exception.CDbException] exception 'CDbException' with message 'The table "category" for active record class "Category" cannot be found in the database.' in /var/www/framework/db/ar/CActiveRecord.php:2383
+Stack trace:
+#0 /var/www/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Category))
+#1 /var/www/framework/db/ar/CActiveRecord.php(661): CActiveRecord->getMetaData()
+#2 /var/www/framework/db/ar/CActiveRecord.php(1538): CActiveRecord->getTableSchema()
+#3 /var/www/smartad/protected/components/HeaderNavbar.php(11): CActiveRecord->findAllByAttributes(Array)
+#4 /var/www/smartad/protected/components/HeaderNavbar.php(8): HeaderNavbar->getAllCatagories()
+#5 /var/www/framework/zii/widgets/CPortlet.php(97): HeaderNavbar->renderContent()
+#6 /var/www/framework/web/CBaseController.php(181): CPortlet->run()
+#7 /var/www/smartad/themes/smartad/views/layouts/main.php(33): CBaseController->widget('HeaderNavbar')
+#8 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#9 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#10 /var/www/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#11 /var/www/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#12 /var/www/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#13 /var/www/framework/web/CBaseController.php(214): COutputProcessor->run()
+#14 /var/www/framework/web/CBaseController.php(308): CBaseController->endWidget('CContentDecorat...')
+#15 /var/www/smartad/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#16 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#17 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#18 /var/www/framework/web/CController.php(784): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#19 /var/www/smartad/protected/controllers/IndexController.php(24): CController->render('index')
+#20 /var/www/framework/web/actions/CInlineAction.php(49): IndexController->actionIndex()
+#21 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#22 /var/www/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#23 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /var/www/framework/web/CWebApplication.php(282): CController->run('')
+#25 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#26 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#27 /var/www/smartad/index.php(14): CApplication->run()
+#28 {main}
+REQUEST_URI=/
+---
+2014/10/20 10:40:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/10/20 10:44:31 [error] [php] Illegal string offset 'role_name' (/var/www/smartad/protected/components/UserIdentity.php:31)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionLogin()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): UserController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): UserController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/user/login
+in /var/www/smartad/protected/components/UserIdentity.php (31)
+in /var/www/smartad/protected/forms/Login.php (51)
+in /var/www/smartad/protected/controllers/UserController.php (220)
+2014/10/20 11:00:11 [error] [php] Illegal string offset 'role_name' (/var/www/smartad/protected/components/UserIdentity.php:31)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionLogin()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): UserController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): UserController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/user/login
+in /var/www/smartad/protected/components/UserIdentity.php (31)
+in /var/www/smartad/protected/forms/Login.php (51)
+in /var/www/smartad/protected/controllers/UserController.php (220)
+2014/10/21 10:48:33 [error] [php] Illegal string offset 'role_name' (/var/www/smartad/protected/components/UserIdentity.php:31)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionLogin()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): UserController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): UserController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/user/login
+in /var/www/smartad/protected/components/UserIdentity.php (31)
+in /var/www/smartad/protected/forms/Login.php (51)
+in /var/www/smartad/protected/controllers/UserController.php (220)
+2014/10/21 10:48:42 [error] [php] Illegal string offset 'role_name' (/var/www/smartad/protected/components/UserIdentity.php:31)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionLogin()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): UserController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): UserController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/user/login
+in /var/www/smartad/protected/components/UserIdentity.php (31)
+in /var/www/smartad/protected/forms/Login.php (51)
+in /var/www/smartad/protected/controllers/UserController.php (220)
+2014/10/21 10:48:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gioi-thieu".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('gioi-thieu')
+#1 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/gioi-thieu
+HTTP_REFERER=http://smartad.local/
+---
+2014/10/21 10:48:58 [error] [exception.CException] exception 'CException' with message 'Property "StaticPage.static_category" is not defined.' in /var/www/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/framework/db/ar/CActiveRecord.php(161): CComponent->__set('static_category', '3')
+#1 /var/www/smartad/protected/controllers/CategoryController.php(127): CActiveRecord->__set('static_category', '3')
+#2 [internal function]: CategoryController->actionIndex('cpi')
+#3 /var/www/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CategoryController), Array)
+#4 /var/www/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CategoryController), Object(ReflectionMethod), Array)
+#5 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/framework/web/CWebApplication.php(282): CController->run('index')
+#14 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('category/index')
+#15 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/smartad/index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/chuyen-muc/cpi
+HTTP_REFERER=http://smartad.local/
+---
+2014/10/21 10:48:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/10/21 11:50:07 [error] [exception.CException] exception 'CException' with message 'Property "StaticPage.static_category" is not defined.' in /var/www/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/framework/db/ar/CActiveRecord.php(161): CComponent->__set('static_category', '3')
+#1 /var/www/smartad/protected/controllers/CategoryController.php(127): CActiveRecord->__set('static_category', '3')
+#2 [internal function]: CategoryController->actionIndex('cpi')
+#3 /var/www/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CategoryController), Array)
+#4 /var/www/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CategoryController), Object(ReflectionMethod), Array)
+#5 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/framework/web/CWebApplication.php(282): CController->run('index')
+#14 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('category/index')
+#15 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/smartad/index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/chuyen-muc/cpi
+HTTP_REFERER=http://smartad.local/
+---
+2014/10/21 11:50:07 [error] [exception.CException] exception 'CException' with message 'Property "StaticPage.static_category" is not defined.' in /var/www/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/framework/db/ar/CActiveRecord.php(161): CComponent->__set('static_category', '3')
+#1 /var/www/smartad/protected/controllers/CategoryController.php(127): CActiveRecord->__set('static_category', '3')
+#2 [internal function]: CategoryController->actionIndex('cpi')
+#3 /var/www/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CategoryController), Array)
+#4 /var/www/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CategoryController), Object(ReflectionMethod), Array)
+#5 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/framework/web/CWebApplication.php(282): CController->run('index')
+#14 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('category/index')
+#15 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/smartad/index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/chuyen-muc/cpi
+HTTP_REFERER=http://smartad.local/
+---
+2014/10/21 11:51:14 [error] [exception.CException] exception 'CException' with message 'Property "StaticPage.static_category" is not defined.' in /var/www/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/framework/db/ar/CActiveRecord.php(161): CComponent->__set('static_category', '3')
+#1 /var/www/smartad/protected/controllers/CategoryController.php(127): CActiveRecord->__set('static_category', '3')
+#2 [internal function]: CategoryController->actionIndex('cpi')
+#3 /var/www/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CategoryController), Array)
+#4 /var/www/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CategoryController), Object(ReflectionMethod), Array)
+#5 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/framework/web/CWebApplication.php(282): CController->run('index')
+#14 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('category/index')
+#15 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#16 /var/www/smartad/index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/chuyen-muc/cpi
+HTTP_REFERER=http://smartad.local/
+---
+2014/10/21 12:03:39 [error] [php] Illegal string offset 'role_name' (/var/www/smartad/protected/components/UserIdentity.php:31)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionLogin()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): UserController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): UserController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/user/login
+in /var/www/smartad/protected/components/UserIdentity.php (31)
+in /var/www/smartad/protected/forms/Login.php (51)
+in /var/www/smartad/protected/controllers/UserController.php (220)
+2014/10/21 15:53:46 [error] [exception.CException] exception 'CException' with message 'The "forceCopy" and "linkAssets" cannot be both true.' in /var/www/framework/web/CAssetManager.php:211
+Stack trace:
+#0 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(115): CAssetManager->publish('/var/www/smarta...', false, 1, true)
+#1 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(106): HighchartsWidget->registerAssets()
+#2 /var/www/framework/web/CBaseController.php(181): HighchartsWidget->run()
+#3 /var/www/smartad/themes/smartad/views/user/revenue.php(118): CBaseController->widget('ext.highcharts....', Array)
+#4 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#5 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#6 /var/www/framework/web/CController.php(869): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#7 /var/www/framework/web/CController.php(782): CController->renderPartial('revenue', Array, true)
+#8 /var/www/smartad/protected/controllers/UserController.php(264): CController->render('revenue', Array)
+#9 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionRevenue()
+#10 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/framework/web/CWebApplication.php(282): CController->run('revenue')
+#19 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('user/revenue')
+#20 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#21 /var/www/smartad/index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/user/revenue
+HTTP_REFERER=http://smartad.local/user/register
+---
+2014/10/21 15:53:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/10/21 15:54:28 [error] [exception.CException] exception 'CException' with message 'The "forceCopy" and "linkAssets" cannot be both true.' in /var/www/framework/web/CAssetManager.php:211
+Stack trace:
+#0 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(115): CAssetManager->publish('/var/www/smarta...', false, 1, true)
+#1 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(106): HighchartsWidget->registerAssets()
+#2 /var/www/framework/web/CBaseController.php(181): HighchartsWidget->run()
+#3 /var/www/smartad/themes/smartad/views/user/revenue.php(118): CBaseController->widget('ext.highcharts....', Array)
+#4 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#5 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#6 /var/www/framework/web/CController.php(869): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#7 /var/www/framework/web/CController.php(782): CController->renderPartial('revenue', Array, true)
+#8 /var/www/smartad/protected/controllers/UserController.php(264): CController->render('revenue', Array)
+#9 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionRevenue()
+#10 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/framework/web/CWebApplication.php(282): CController->run('revenue')
+#19 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('user/revenue')
+#20 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#21 /var/www/smartad/index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/user/revenue
+HTTP_REFERER=http://smartad.local/user/register
+---
+2014/10/21 15:54:29 [error] [exception.CException] exception 'CException' with message 'The "forceCopy" and "linkAssets" cannot be both true.' in /var/www/framework/web/CAssetManager.php:211
+Stack trace:
+#0 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(115): CAssetManager->publish('/var/www/smarta...', false, 1, true)
+#1 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(106): HighchartsWidget->registerAssets()
+#2 /var/www/framework/web/CBaseController.php(181): HighchartsWidget->run()
+#3 /var/www/smartad/themes/smartad/views/user/revenue.php(118): CBaseController->widget('ext.highcharts....', Array)
+#4 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#5 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#6 /var/www/framework/web/CController.php(869): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#7 /var/www/framework/web/CController.php(782): CController->renderPartial('revenue', Array, true)
+#8 /var/www/smartad/protected/controllers/UserController.php(264): CController->render('revenue', Array)
+#9 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionRevenue()
+#10 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/framework/web/CWebApplication.php(282): CController->run('revenue')
+#19 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('user/revenue')
+#20 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#21 /var/www/smartad/index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/user/revenue
+HTTP_REFERER=http://smartad.local/user/register
+---
+2014/10/21 15:54:29 [error] [exception.CException] exception 'CException' with message 'The "forceCopy" and "linkAssets" cannot be both true.' in /var/www/framework/web/CAssetManager.php:211
+Stack trace:
+#0 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(115): CAssetManager->publish('/var/www/smarta...', false, 1, true)
+#1 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(106): HighchartsWidget->registerAssets()
+#2 /var/www/framework/web/CBaseController.php(181): HighchartsWidget->run()
+#3 /var/www/smartad/themes/smartad/views/user/revenue.php(118): CBaseController->widget('ext.highcharts....', Array)
+#4 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#5 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#6 /var/www/framework/web/CController.php(869): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#7 /var/www/framework/web/CController.php(782): CController->renderPartial('revenue', Array, true)
+#8 /var/www/smartad/protected/controllers/UserController.php(264): CController->render('revenue', Array)
+#9 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionRevenue()
+#10 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/framework/web/CWebApplication.php(282): CController->run('revenue')
+#19 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('user/revenue')
+#20 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#21 /var/www/smartad/index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/user/revenue
+HTTP_REFERER=http://smartad.local/user/register
+---
+2014/10/21 15:54:29 [error] [exception.CException] exception 'CException' with message 'The "forceCopy" and "linkAssets" cannot be both true.' in /var/www/framework/web/CAssetManager.php:211
+Stack trace:
+#0 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(115): CAssetManager->publish('/var/www/smarta...', false, 1, true)
+#1 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(106): HighchartsWidget->registerAssets()
+#2 /var/www/framework/web/CBaseController.php(181): HighchartsWidget->run()
+#3 /var/www/smartad/themes/smartad/views/user/revenue.php(118): CBaseController->widget('ext.highcharts....', Array)
+#4 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#5 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#6 /var/www/framework/web/CController.php(869): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#7 /var/www/framework/web/CController.php(782): CController->renderPartial('revenue', Array, true)
+#8 /var/www/smartad/protected/controllers/UserController.php(264): CController->render('revenue', Array)
+#9 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionRevenue()
+#10 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/framework/web/CWebApplication.php(282): CController->run('revenue')
+#19 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('user/revenue')
+#20 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#21 /var/www/smartad/index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/user/revenue
+HTTP_REFERER=http://smartad.local/user/register
+---
+2014/10/21 15:54:29 [error] [exception.CException] exception 'CException' with message 'The "forceCopy" and "linkAssets" cannot be both true.' in /var/www/framework/web/CAssetManager.php:211
+Stack trace:
+#0 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(115): CAssetManager->publish('/var/www/smarta...', false, 1, true)
+#1 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(106): HighchartsWidget->registerAssets()
+#2 /var/www/framework/web/CBaseController.php(181): HighchartsWidget->run()
+#3 /var/www/smartad/themes/smartad/views/user/revenue.php(118): CBaseController->widget('ext.highcharts....', Array)
+#4 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#5 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#6 /var/www/framework/web/CController.php(869): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#7 /var/www/framework/web/CController.php(782): CController->renderPartial('revenue', Array, true)
+#8 /var/www/smartad/protected/controllers/UserController.php(264): CController->render('revenue', Array)
+#9 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionRevenue()
+#10 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/framework/web/CWebApplication.php(282): CController->run('revenue')
+#19 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('user/revenue')
+#20 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#21 /var/www/smartad/index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/user/revenue
+HTTP_REFERER=http://smartad.local/user/register
+---
+2014/10/21 15:59:33 [error] [php] Illegal string offset 'role_name' (/var/www/smartad/protected/modules/admin/components/AdminUserIdentity.php:18)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionLogin()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): UserController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): UserController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/admin/user/login
+in /var/www/smartad/protected/modules/admin/components/AdminUserIdentity.php (18)
+in /var/www/smartad/protected/modules/admin/models/AdminLoginForm.php (63)
+in /var/www/smartad/protected/modules/admin/controllers/UserController.php (203)
+2014/10/21 15:59:56 [error] [exception.CException] exception 'CException' with message 'Property "User.user" is not defined.' in /var/www/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/framework/db/ar/CActiveRecord.php(145): CComponent->__get('user')
+#1 /var/www/framework/base/CModel.php(596): CActiveRecord->__get('user')
+#2 /var/www/smartad/protected/modules/admin/components/AdminUserIdentity.php(18): CModel->offsetGet('user')
+#3 /var/www/smartad/protected/modules/admin/models/AdminLoginForm.php(63): AdminUserIdentity->authenticate()
+#4 /var/www/smartad/protected/modules/admin/controllers/UserController.php(203): AdminLoginForm->login()
+#5 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionLogin()
+#6 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/framework/web/CWebApplication.php(282): CController->run('login')
+#15 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/user/logi...')
+#16 /var/www/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#17 /var/www/smartad/index.php(14): CApplication->run()
+#18 {main}
+REQUEST_URI=/admin/user/login
+HTTP_REFERER=http://smartad.local/admin/user/login
+---
+2014/10/21 16:01:03 [warning] [application] Failed to set unsafe attribute "registered_date" of "Application".
+in /var/www/smartad/protected/modules/admin/controllers/ApplicationController.php (97)
+in /var/www/smartad/index.php (14)
+2014/10/21 23:31:15 [error] [php] copy(/var/www/smartad/assets/247720fd/highcharts.js): failed to open stream: Permission denied (/var/www/framework/utils/CFileHelper.php:152)
+Stack trace:
+#0 /var/www/framework/web/CAssetManager.php(251): copyDirectory()
+#1 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(115): CAssetManager->publish()
+#2 /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php(106): HighchartsWidget->registerAssets()
+#3 /var/www/framework/web/CBaseController.php(173): HighchartsWidget->run()
+#4 /var/www/smartad/themes/smartad/views/user/revenue.php(118): UserController->widget()
+#5 /var/www/framework/web/CBaseController.php(126): require()
+#6 /var/www/framework/web/CBaseController.php(95): UserController->renderInternal()
+#7 /var/www/framework/web/CController.php(869): UserController->renderFile()
+#8 /var/www/framework/web/CController.php(782): UserController->renderPartial()
+#9 /var/www/smartad/protected/controllers/UserController.php(264): UserController->render()
+#10 /var/www/framework/web/actions/CInlineAction.php(49): UserController->actionRevenue()
+#11 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /var/www/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#13 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#15 /var/www/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#16 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#17 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#18 /var/www/framework/web/CController.php(265): UserController->runActionWithFilters()
+#19 /var/www/framework/web/CWebApplication.php(282): UserController->run()
+#20 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#21 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#22 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/user/revenue
+in /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php (115)
+in /var/www/smartad/protected/extensions/highcharts/HighchartsWidget.php (106)
+in /var/www/smartad/themes/smartad/views/user/revenue.php (118)
+2014/10/21 23:31:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/10/21 23:35:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/10/22 00:02:44 [error] [exception.CException] exception 'CException' with message 'CWebUser and its behaviors do not have a method or closure named "baseUrl".' in /var/www/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/smartad/themes/smartad/views/application/view.php(49): CComponent->__call('baseUrl', Array)
+#1 /var/www/smartad/themes/smartad/views/application/view.php(49): CWebUser->baseUrl(true)
+#2 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#3 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#4 /var/www/framework/web/CController.php(869): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#5 /var/www/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#6 /var/www/smartad/protected/controllers/ApplicationController.php(57): CController->render('view', Array)
+#7 [internal function]: ApplicationController->actionView('cong-thanh-xung...')
+#8 /var/www/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApplicationController), Array)
+#9 /var/www/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApplicationController), Object(ReflectionMethod), Array)
+#10 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/framework/web/CWebApplication.php(282): CController->run('view')
+#19 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('application/vie...')
+#20 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/smartad/index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/application/cong-thanh-xung-de
+HTTP_REFERER=http://smartad.local/application
+---
+2014/10/22 00:02:57 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "baseUrl".' in /var/www/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/smartad/themes/smartad/views/application/view.php(49): CComponent->__call('baseUrl', Array)
+#1 /var/www/smartad/themes/smartad/views/application/view.php(49): CWebApplication->baseUrl(true)
+#2 /var/www/framework/web/CBaseController.php(126): require('/var/www/smarta...')
+#3 /var/www/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/smarta...', Array, true)
+#4 /var/www/framework/web/CController.php(869): CBaseController->renderFile('/var/www/smarta...', Array, true)
+#5 /var/www/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#6 /var/www/smartad/protected/controllers/ApplicationController.php(57): CController->render('view', Array)
+#7 [internal function]: ApplicationController->actionView('cong-thanh-xung...')
+#8 /var/www/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApplicationController), Array)
+#9 /var/www/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApplicationController), Object(ReflectionMethod), Array)
+#10 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/framework/web/CWebApplication.php(282): CController->run('view')
+#19 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('application/vie...')
+#20 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/smartad/index.php(14): CApplication->run()
+#22 {main}
+REQUEST_URI=/application/cong-thanh-xung-de
+HTTP_REFERER=http://smartad.local/application
+---
+2014/10/22 00:11:18 [warning] [application] Failed to set unsafe attribute "registered_date" of "Application".
+in /var/www/smartad/protected/modules/admin/controllers/ApplicationController.php (72)
+in /var/www/smartad/index.php (14)
+2014/10/22 00:11:43 [warning] [application] Failed to set unsafe attribute "registered_date" of "Application".
+in /var/www/smartad/protected/modules/admin/controllers/ApplicationController.php (97)
+in /var/www/smartad/index.php (14)
+2014/10/22 00:12:36 [warning] [application] Failed to set unsafe attribute "registered_date" of "Application".
+in /var/www/smartad/protected/modules/admin/controllers/ApplicationController.php (97)
+in /var/www/smartad/index.php (14)
+2014/10/22 00:22:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cpi/admin/cong-thanh-xung-de".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('cpi/admin/cong-...')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+HTTP_REFERER=http://smartad.local/application/cong-thanh-xung-de
+---
+2014/10/22 00:27:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/framework/web/CWebApplication.php(282): CController->run('cpi')
+#8 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/cpi')
+#9 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/smartad/index.php(14): CApplication->run()
+#11 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+HTTP_REFERER=http://smartad.local/application/cong-thanh-xung-de
+---
+2014/10/22 00:28:01 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/framework/web/CWebApplication.php(282): CController->run('cpi')
+#9 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/cpi')
+#10 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/smartad/index.php(14): CApplication->run()
+#12 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+HTTP_REFERER=http://smartad.local/application/cong-thanh-xung-de
+---
+2014/10/22 00:28:28 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/framework/web/CWebApplication.php(282): CController->run('cpi')
+#9 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/cpi')
+#10 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/smartad/index.php(14): CApplication->run()
+#12 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+HTTP_REFERER=http://smartad.local/application/cong-thanh-xung-de
+---
+2014/10/22 00:28:41 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/framework/web/CWebApplication.php(282): CController->run('cpi')
+#9 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/cpi')
+#10 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/smartad/index.php(14): CApplication->run()
+#12 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+HTTP_REFERER=http://smartad.local/application/cong-thanh-xung-de
+---
+2014/10/22 00:29:22 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/framework/web/CWebApplication.php(282): CController->run('cpi')
+#9 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/cpi')
+#10 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/smartad/index.php(14): CApplication->run()
+#12 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+---
+2014/10/22 00:30:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "inedx".' in /var/www/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/framework/web/CController.php(270): CController->missingAction('inedx')
+#1 /var/www/framework/web/CWebApplication.php(282): CController->run('inedx')
+#2 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/ine...')
+#3 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/smartad/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+---
+2014/10/22 00:30:25 [error] [exception.CException] exception 'CException' with message 'InteractionController and its behaviors do not have a method or closure named "actioncpi".' in /var/www/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): CComponent->__call('actioncpi', Array)
+#1 /var/www/framework/web/actions/CInlineAction.php(49): InteractionController->actioncpi()
+#2 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#9 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/framework/web/CWebApplication.php(282): CController->run('cpi')
+#11 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/cpi')
+#12 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/smartad/index.php(14): CApplication->run()
+#14 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+---
+2014/10/22 00:30:42 [error] [exception.CException] exception 'CException' with message 'InteractionController and its behaviors do not have a method or closure named "actioncpi".' in /var/www/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): CComponent->__call('actioncpi', Array)
+#1 /var/www/framework/web/actions/CInlineAction.php(49): InteractionController->actioncpi()
+#2 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#9 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/framework/web/CWebApplication.php(282): CController->run('cpi')
+#11 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/cpi')
+#12 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/smartad/index.php(14): CApplication->run()
+#14 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+---
+2014/10/22 00:30:52 [error] [exception.CException] exception 'CException' with message 'InteractionController and its behaviors do not have a method or closure named "actioncpi".' in /var/www/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(49): CComponent->__call('actioncpi', Array)
+#1 /var/www/framework/web/actions/CInlineAction.php(49): InteractionController->actioncpi()
+#2 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#9 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/framework/web/CWebApplication.php(282): CController->run('cpi')
+#11 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/cpi')
+#12 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/smartad/index.php(14): CApplication->run()
+#14 {main}
+REQUEST_URI=/cpi/admin/cong-thanh-xung-de
+---
+2014/10/22 00:47:19 [warning] [application] Failed to set unsafe attribute "registered_date" of "Application".
+in /var/www/smartad/protected/modules/admin/controllers/ApplicationController.php (97)
+in /var/www/smartad/index.php (14)
+2014/10/22 01:01:11 [warning] [application] Failed to set unsafe attribute "registered_date" of "Application".
+in /var/www/smartad/protected/modules/admin/controllers/ApplicationController.php (97)
+in /var/www/smartad/index.php (14)
+2014/10/22 01:20:04 [error] [php] Undefined index: HTTP_X_FORWARDED_FOR (/var/www/smartad/protected/controllers/InteractionController.php:86)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): InteractionController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): InteractionController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): InteractionController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): InteractionController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/cpi/admin/mobogenie-market
+in /var/www/smartad/protected/controllers/InteractionController.php (86)
+in /var/www/smartad/index.php (14)
+2014/10/22 02:00:32 [warning] [application] Failed to set unsafe attribute "registered_date" of "Application".
+in /var/www/smartad/protected/modules/admin/controllers/ApplicationController.php (97)
+in /var/www/smartad/index.php (14)
+2014/10/22 02:46:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/gdgf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/gdgf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/gdgf
+---
+2014/10/22 02:46:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/gdgf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/gdgf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/gdgf
+---
+2014/10/22 02:46:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/gdgf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/gdgf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/gdgf
+---
+2014/10/22 02:47:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/g8wpm26ja2".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/g8wpm2...')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/g8wpm26ja2
+---
+2014/10/22 02:47:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/gfgf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/gfgf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/gfgf
+---
+2014/10/22 02:48:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "gfgf".' in /var/www/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/framework/web/CController.php(270): CController->missingAction('gfgf')
+#1 /var/www/framework/web/CWebApplication.php(282): CController->run('gfgf')
+#2 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/gfg...')
+#3 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/smartad/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/interaction/gfgf
+---
+2014/10/22 02:48:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "gfgf".' in /var/www/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/framework/web/CController.php(270): CController->missingAction('gfgf')
+#1 /var/www/framework/web/CWebApplication.php(282): CController->run('gfgf')
+#2 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/gfg...')
+#3 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/smartad/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/interaction/gfgf
+---
+2014/10/22 02:49:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "gfgf".' in /var/www/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/framework/web/CController.php(270): CController->missingAction('gfgf')
+#1 /var/www/framework/web/CWebApplication.php(282): CController->run('gfgf')
+#2 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/gfg...')
+#3 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/smartad/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/interaction/gfgf
+---
+2014/10/22 02:49:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "hash_code".' in /var/www/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/framework/web/CController.php(270): CController->missingAction('hash_code')
+#1 /var/www/framework/web/CWebApplication.php(282): CController->run('hash_code')
+#2 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/has...')
+#3 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/smartad/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/interaction/hash_code/gdgfd
+---
+2014/10/22 02:50:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/hash_code".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/hash_c...')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/hash_code
+---
+2014/10/22 02:50:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/hgfgdfgd".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/hgfgdf...')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/hgfgdfgd
+---
+2014/10/22 02:51:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/update".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/update')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/update
+---
+2014/10/22 02:51:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/update".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/update')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/update
+---
+2014/10/22 02:51:37 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/framework/web/CWebApplication.php(282): CController->run('update')
+#9 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/upd...')
+#10 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/smartad/index.php(14): CApplication->run()
+#12 {main}
+REQUEST_URI=/interaction/update
+---
+2014/10/22 02:52:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/update".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/update')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/update
+---
+2014/10/22 02:52:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/update".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/update')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/update
+---
+2014/10/22 02:53:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/
+---
+2014/10/22 02:54:15 [error] [php] Trying to get property of non-object (/var/www/smartad/protected/controllers/InteractionController.php:76)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): InteractionController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): InteractionController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): InteractionController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): InteractionController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/cpi/active/fsfdsf
+in /var/www/smartad/protected/controllers/InteractionController.php (76)
+in /var/www/smartad/index.php (14)
+2014/10/22 02:54:35 [error] [php] Trying to get property of non-object (/var/www/smartad/protected/controllers/InteractionController.php:76)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): InteractionController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): InteractionController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): InteractionController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): InteractionController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/cpi/active/fsfdsf
+in /var/www/smartad/protected/controllers/InteractionController.php (76)
+in /var/www/smartad/index.php (14)
+2014/10/22 02:54:40 [error] [php] Trying to get property of non-object (/var/www/smartad/protected/controllers/InteractionController.php:76)
+Stack trace:
+#0 /var/www/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/framework/web/filters/CFilterChain.php(133): InteractionController->runAction()
+#3 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/framework/web/filters/CInlineFilter.php(58): InteractionController->filterAccessControl()
+#6 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(265): InteractionController->runActionWithFilters()
+#9 /var/www/framework/web/CWebApplication.php(282): InteractionController->run()
+#10 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/smartad/index.php(14): CWebApplication->run()
+REQUEST_URI=/cpi/active/fsfdsf
+in /var/www/smartad/protected/controllers/InteractionController.php (76)
+in /var/www/smartad/index.php (14)
+2014/10/22 02:55:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "active/fsfdsf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('active/fsfdsf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/active/fsfdsf
+---
+2014/10/22 02:55:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "active/fsfdsf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('active/fsfdsf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/active/fsfdsf
+---
+2014/10/22 02:55:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "active/fsfsdf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('active/fsfsdf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/active/fsfsdf
+---
+2014/10/22 02:56:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "incoming/fsfsdf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('incoming/fsfsdf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/incoming/fsfsdf
+---
+2014/10/22 02:56:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "incoming/fsfsdf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('incoming/fsfsdf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/incoming/fsfsdf
+---
+2014/10/22 02:57:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "activate/fsfsdf".' in /var/www/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('activate/fsfsdf')
+#1 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/smartad/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/activate/fsfsdf
+---
+2014/10/22 03:23:35 [error] [exception.CException] exception 'CException' with message 'Property "Interaction.status" is not defined.' in /var/www/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/framework/db/ar/CActiveRecord.php(145): CComponent->__get('status')
+#1 /var/www/smartad/protected/controllers/InteractionController.php(113): CActiveRecord->__get('status')
+#2 [internal function]: InteractionController->actionUpdate('g8wpm26ja2')
+#3 /var/www/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(InteractionController), Array)
+#4 /var/www/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(InteractionController), Object(ReflectionMethod), Array)
+#5 /var/www/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/framework/web/CWebApplication.php(282): CController->run('update')
+#14 /var/www/framework/web/CWebApplication.php(141): CWebApplication->runController('interaction/upd...')
+#15 /var/www/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/smartad/index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/activation-code/g8wpm26ja2
+---

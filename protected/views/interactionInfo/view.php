@@ -22,6 +22,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+		'interaction_id',
 		'status',
 		'ref_code',
 		'imei',

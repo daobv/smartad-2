@@ -20,6 +20,12 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'interaction_id'); ?>
+		<?php echo $form->textField($model,'interaction_id'); ?>
+		<?php echo $form->error($model,'interaction_id'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->textField($model,'status'); ?>
 		<?php echo $form->error($model,'status'); ?>

@@ -13,10 +13,11 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach($data as $value):?>
+        <?php $application = Application::model()->findByPk($value['app_id']);?>
+        <?php if($application):?>
         <tr>
-            <?php foreach($data as $value):?>
-             <?php $application = Application::model()->findByPk($value['app_id']);?>
-             <?php if($application):?>
+
             <td><a href="#">
                     <img src="<?php echo $application->image; ?>"
                          style="max-width: 30px" class="icon-default">
@@ -37,8 +38,8 @@
                 <?php printf("%3.0f",$value['revenue']);?> VNĐ
             </td>
                     <?php endif;?>
-            <?php endforeach; ?>
         </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </h4>

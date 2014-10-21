@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'interaction':
  * @property integer $id
- * @property integer $interaction_info
  * @property integer $app_id
  * @property integer $user_id
  * @property integer $day_click
@@ -13,7 +12,7 @@
  * @property double $revenue
  * @property integer $date
  */
-class Interaction extends CActiveRecord
+class Interaction extends Model
 {
 	/**
 	 * @return string the associated database table name
@@ -31,12 +30,12 @@ class Interaction extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('interaction_info, app_id, user_id', 'required'),
-			array('interaction_info, app_id, user_id, day_click, success, date', 'numerical', 'integerOnly'=>true),
+			array('app_id, user_id', 'required'),
+			array('app_id, user_id, day_click, success, date', 'numerical', 'integerOnly'=>true),
 			array('revenue', 'numerical'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, interaction_info, app_id, user_id, day_click, success, revenue, date', 'safe', 'on'=>'search'),
+			array('id, app_id, user_id, day_click, success, revenue, date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,7 +57,6 @@ class Interaction extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'interaction_info' => 'Interaction Info',
 			'app_id' => 'App',
 			'user_id' => 'User',
 			'day_click' => 'Day Click',
@@ -87,7 +85,6 @@ class Interaction extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('interaction_info',$this->interaction_info);
 		$criteria->compare('app_id',$this->app_id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('day_click',$this->day_click);
@@ -111,18 +108,18 @@ class Interaction extends CActiveRecord
 		return parent::model($className);
 	}
     public function getInteractionByUser($user_id,$from,$to){
-      $interaction = Interaction::model()->findAllBySql("SELECT app_id, SUM(day_click) as day_click,
+        $interaction = Interaction::model()->findAllBySql("SELECT app_id, SUM(day_click) as day_click,
       SUM(success) as success, SUM(revenue) as revenue FROM ".$this->tableName()." WHERE user_id = ".$user_id. " AND date <= ".$to. " && date >= ".$from." GROUP BY app_id");
-      return $interaction;
+        return $interaction;
     }
     public function getTodayRevenue(){
         $userId=  Yii::app()->user->id;
         $interactions = $this->getInteractionByUser($userId,date('ymd',time()),date('ymd',time()));
         $sum = 0;
         if(count($interactions) > 0)
-        foreach($interactions as $interaction){
-            $sum += $interaction->revenue;
-        }
+            foreach($interactions as $interaction){
+                $sum += $interaction->revenue;
+            }
         return $sum;
     }
     public function getInteractionByDate($user_id,$from,$to){
@@ -138,6 +135,5 @@ class Interaction extends CActiveRecord
             return $interaction->revenue;
         }
         return 0;
-
     }
 }

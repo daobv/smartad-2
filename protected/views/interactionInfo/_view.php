@@ -9,6 +9,10 @@
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('interaction_id')); ?>:</b>
+	<?php echo CHtml::encode($data->interaction_id); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
@@ -29,11 +33,11 @@
 	<?php echo CHtml::encode($data->os); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('ip')); ?>:</b>
 	<?php echo CHtml::encode($data->ip); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('phone_number')); ?>:</b>
 	<?php echo CHtml::encode($data->phone_number); ?>
 	<br />

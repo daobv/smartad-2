@@ -28,11 +28,11 @@ class InteractionController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','create','update'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -60,23 +60,40 @@ class InteractionController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($user,$slug)
 	{
+        $user = User::model()->findByAttributes(array('username'=>$user));
+        $application = Application::model()->findByAttributes(array('slug'=>$slug));
 		$model=new Interaction;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Interaction']))
-		{
-			$model->attributes=$_POST['Interaction'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+        $interaction_info = new InteractionInfo();
+        $hashCode = "";
+        while(true){
+            $hashCode = $model->generateRandomString();
+            $interactionInfoData = InteractionInfo::model()->findByAttributes(array('hash_code'=>$hashCode));
+            if(!$interactionInfoData)
+                break;
+        }
+        $redirectUrl = str_replace("hashCode",$hashCode,$application->link);
+        $date=date('ymd',time());
+        $interaction = $model->findByAttributes(array('app_id'=>$application->id,'user_id'=>$user->id,'date'=>$date));
+        if($interaction){
+            $interaction->day_click += 1;
+            $interaction_info->interaction_id = $interaction->id;
+            $interaction_info->ip = $_SERVER['REMOTE_ADDR'];
+            $interaction_info->hash_code = $hashCode;
+            $interaction_info->save();
+        }else{
+            $model->user_id = $user->id;
+            $model->app_id = $application->id;
+            $model->date = $date;
+            $model->day_click = 1;
+            $model->save();
+            $interaction_info->interaction_id = $model->id;
+            $interaction_info->ip = $_SERVER['REMOTE_ADDR'];
+            $interaction_info->hash_code = $hashCode;
+            $interaction_info->save();
+        }
+        $this->redirect($redirectUrl);
 	}
 
 	/**
@@ -84,23 +101,30 @@ class InteractionController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate($hash_code)
 	{
-		$model=$this->loadModel($id);
+        $interactionInfo = InteractionInfo::model()->findByAttributes(array('hash_code'=>$hash_code));
+        if($interactionInfo && $interactionInfo->status == 0){
+            $requestIp = $_SERVER['REMOTE_ADDR'];
+            $allowIp = ActivationIp::model()->findByAttributes(array('ip'=>$requestIp,'status'=>1));
+            if($allowIp){
+                $interactionInfo->status = 1;
+                $interaction = Interaction::model()->findByPk($interactionInfo->interaction_id);
+                if($interaction){
+                    $interaction->success += 1;
+                    $application = Application::model()->findByPk($interaction->app_id);
+                    if($application){
+                        $interaction->revenue += $application->price;
+                    }
+                    $interaction->save();
+                }
+            }
+            $log = new ActivationLog();
+            $log->ip = $requestIp;
+            $log->hash_code = $hash_code;
+            $log->save();
+        }
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Interaction']))
-		{
-			$model->attributes=$_POST['Interaction'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
 	}
 
 	/**

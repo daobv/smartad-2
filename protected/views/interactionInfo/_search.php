@@ -17,6 +17,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'interaction_id'); ?>
+		<?php echo $form->textField($model,'interaction_id'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
 		<?php echo $form->textField($model,'status'); ?>
 	</div>
