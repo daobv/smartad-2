@@ -28,7 +28,7 @@ class UserIdentity extends CUserIdentity
             $this->setState("id", $models->id);
             $this->setState('email', $models->email);
             $this->setState('roleId', $models->user_role);
-            $this->setState("roleName", $models['user_role']['role_name']);
+            $this->setState("roleName", $models['role']['role_name']);
         }
         return $this->errorCode;
     }
