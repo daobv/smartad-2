@@ -145,7 +145,7 @@
                     </div>
                     <div class="form-group">
                         <div class="controls">
-                            <button type="submit" name="submit_register" value="1" class="btn btn-success">Đăng ký
+                            <button type="submit" name="submit_register" value="1" class="btn btn-success">Lưu
                             </button>
                         </div>
                     </div>

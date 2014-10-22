@@ -33,10 +33,10 @@ class RegisterForm extends  CFormModel{
         return array(
             'full_name'=>'họ và tên',
             'username'=>'tên đăng nhập',
-            'password'=>'mật Khẩu',
+            'password'=>'mật khẩu',
             'identity_card'=>'số CMT',
             'rePassword'=>"xác nhận mật khẩu",
-            'phoneNumber'=>'số Điện Thoại',
+            'phoneNumber'=>'số điện thoại',
             'verifyCode' =>"mã captcha",
             'acceptRules' => "Đồng Ý"
         );

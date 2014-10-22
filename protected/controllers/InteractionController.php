@@ -75,9 +75,11 @@ class InteractionController extends Controller
         }
         $redirectUrl = str_replace("hashCode",$hashCode,$application->link);
         $date=date('ymd',time());
-        $interaction = $model->findByAttributes(array('app_id'=>$application->id,'user_id'=>$user->id,'date'=>$date));
+        $interaction = Interaction::model()->findByAttributes(array('app_id'=>$application->id,'user_id'=>$user->id,'date'=>$date));
+
         if($interaction){
             $interaction->day_click += 1;
+            $interaction->save();
             $interaction_info->interaction_id = $interaction->id;
             $interaction_info->ip = $_SERVER['REMOTE_ADDR'];
             $interaction_info->hash_code = $hashCode;
