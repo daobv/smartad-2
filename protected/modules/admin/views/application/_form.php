@@ -31,7 +31,13 @@ $status = $model->isNewRecord ? 'Tạo Mới ' : 'Cập Nhật ';
                         class="formRight"><?php echo $form->textField($model, 'name', array('size' => 60, 'maxlength' => 255)); ?></div>
                     <div class="fix"><?php echo $form->error($model, 'name'); ?></div>
                 </div>
+                <div class="rowElem">
+                    <label><?php echo $form->labelEx($model, 'app_code'); ?></label>
 
+                    <div
+                        class="formRight"><?php echo $form->textField($model, 'app_code', array('size' => 60, 'maxlength' => 255)); ?></div>
+                    <div class="fix"><?php echo $form->error($model, 'app_code'); ?></div>
+                </div>
                 <div class="rowElem">
                     <label><?php echo $form->labelEx($model, 'image'); ?></label>
 

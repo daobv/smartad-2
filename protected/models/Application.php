@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'application':
  * @property integer $id
  * @property string $name
+ * @property string $app_code
  * @property string $slug
  * @property string $image
  * @property string $short_description
@@ -40,15 +41,21 @@ class Application extends Model
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, image, adv_type, platform_id, appearance_id, status_id, content, link, price', 'required'),
+			array('name,app_code, slug, image, adv_type, platform_id, appearance_id, status_id, content, link, price, registered_date', 'required'),
 			array('adv_type, platform_id, appearance_id, status_id', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
-			array('name, slug, image, size', 'length', 'max'=>255),
+			array('name, app_code, slug, image, size', 'length', 'max'=>255),
 			array('area, link', 'length', 'max'=>1024),
+            array('slug','unique','enableClientValidation'=>true,
+                'attributeName'=>'slug','className'=>'Application','skipOnError'=>false,
+                'message'=>"'{value}' đã tồn tại"),
+            array('app_code','unique','enableClientValidation'=>true,
+                'attributeName'=>'app_code','className'=>'Application','skipOnError'=>false,
+                'message'=>"'{value}' đã tồn tại"),
 			array('short_description, from, to', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, slug, image, short_description, adv_type, platform_id, appearance_id, area, from, to, status_id, content, link, price, size, registered_date', 'safe', 'on'=>'search'),
+			array('id, name, app_code, slug, image, short_description, adv_type, platform_id, appearance_id, area, from, to, status_id, content, link, price, size, registered_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,6 +81,7 @@ class Application extends Model
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'app_code' => 'App Code',
 			'slug' => 'Slug',
 			'image' => 'Image',
 			'short_description' => 'Short Description',
@@ -112,6 +120,7 @@ class Application extends Model
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('app_code',$this->app_code,true);
 		$criteria->compare('slug',$this->slug,true);
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('short_description',$this->short_description,true);

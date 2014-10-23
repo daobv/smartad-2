@@ -5,19 +5,7 @@
 ?>
 <div class="container">
     <div class="row">
-        <div class="filter-head col-md-12 nopadding">
-            <form name="headerfilter">
-                <div class="col-md-2">
-                    <label style="font-size: 12px;">Trạng thái</label>
-                    <?php echo CHtml::dropdownlist('status', '3', CHtml::listData(AdvStatus::model()->findAll(), 'id', 'name'),array("class"=>'form-control'));?>
-                </div>
 
-                <div class="col-md-2">
-                    <label style="font-size: 12px;">Hình thức</label>
-                    <?php echo CHtml::dropdownlist('appearance', '2', CHtml::listData(AdvApperance::model()->findAll(), 'id', 'name'),array("class"=>'form-control'));?>
-                </div>
-            </form>
-        </div>
         <div class="col-md-12">
             <?php $this->widget('zii.widgets.grid.CGridView', array(
                 'id' => 'application-grid',

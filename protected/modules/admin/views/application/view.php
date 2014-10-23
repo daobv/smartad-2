@@ -17,6 +17,11 @@
                     'value' => CHtml::image($model->image, $model->name, array('width' => '60px')), $model->image, array('id' => 'application-image'),
                 ),
                 array(
+                    'name' => "app_code",
+                    'type' => 'raw',
+                    'value' => $model->app_code,
+                ),
+                array(
                     'name' => "short_description",
                     'type' => 'raw',
                     'value' => htmlspecialchars_decode($model->short_description),

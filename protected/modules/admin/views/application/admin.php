@@ -32,7 +32,7 @@
                     'value'=>'$data["status"]["name"]',
                     'filter'=>CHtml::listData(AdvStatus::model()->findAll(), 'id', 'name')
                 ),
-                //'platform_id',
+                'app_code',
                 array(
                     'name'=>'appearance_id',
                     'htmlOptions' =>array('style'=>'width:50px'),

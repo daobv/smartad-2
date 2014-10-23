@@ -24,7 +24,7 @@ label.error { color: #A73939; font-size: 11px;  width: 100%; white-space: nowrap
 .selector .error { margin-right: -220px; float: right; }
 .checker label.error, .radio label.error { display: inline; margin: 0; }
 .req { margin-left: 5px; color: #DB6464; }
-.errorMessage{text-align:center;}
+.errorMessage{color: red;}
 .formNote { display: block; text-align: left; font-size: 11px; padding-top: 5px; color: #939393; }
 
 

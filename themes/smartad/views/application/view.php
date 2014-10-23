@@ -46,7 +46,7 @@
                     <div class="tab_item">
                         <label> <b>Link phân phối:</b></label>
 
-                        <p><a href="<?php echo Yii::app()->createUrl("cpi/".Yii::app()->user->name."/".$model->slug);?>" target="_blank"><?php echo Yii::app()->getBaseUrl(true)."/cpi/".Yii::app()->user->name."/".$model->slug; ?></a></p>
+                        <p><a href="<?php echo Yii::app()->createUrl("cpi/".Yii::app()->user->name."/".$model->app_code);?>" target="_blank"><?php echo Yii::app()->getBaseUrl(true)."/cpi/".Yii::app()->user->name."/".$model->app_code; ?></a></p>
 
                     </div>
                     <div class="row-item" style="margin-bottom: 10px">
