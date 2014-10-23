@@ -111,6 +111,7 @@ class InteractionController extends Controller
             $allowIp = ActivationIp::model()->findByAttributes(array('ip'=>$requestIp,'status'=>1));
             if($allowIp){
                 $interactionInfo->status = 1;
+                $interactionInfo->save();
                 $interaction = Interaction::model()->findByPk($interactionInfo->interaction_id);
                 if($interaction){
                     $interaction->success += 1;
