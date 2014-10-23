@@ -103,7 +103,7 @@ class InteractionController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($hash_code)
+	public function actionUpdate($slug,$hash_code)
 	{
         $interactionInfo = InteractionInfo::model()->findByAttributes(array('hash_code'=>$hash_code));
         if($interactionInfo && $interactionInfo->status == 0){
@@ -115,7 +115,7 @@ class InteractionController extends Controller
                 if($interaction){
                     $interaction->success += 1;
                     $application = Application::model()->findByPk($interaction->app_id);
-                    if($application){
+                    if($application && $application->slug == $slug){
                         $interaction->revenue += $application->price;
                     }
                     $interaction->save();

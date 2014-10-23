@@ -12,7 +12,7 @@ return CMap::mergeArray(
                     'static-page/<slug>' => 'staticPage/index',
                     'application/<slug>' => 'application/view',
                     'cpi/<user>/<slug>' =>'interaction/create',
-                    'activation-code/<hash_code>' =>'interaction/update',
+                    'incoming/<slug>/<hash_code>' =>'interaction/update',
                     'dang-nhap' => 'user/login',
                 ),
             ),
