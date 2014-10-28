@@ -112,7 +112,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label"><?php echo $form->label($model['info'],'user_type')?></label>
                         <div class="col-sm-9">
-                            <?php echo $form->dropDownList($model['info'],'user_type',UserInfo::model()->getUserType(),array('class'=>'form-control','placeholder'=>'Ngân Hàng')); ?>
+                            <?php echo $form->dropDownList($model['info'],'user_type',UserInfo::model()->getUserType(),array('class'=>'form-control','placeholder'=>'Bạn là')); ?>
                             <p>
                                 <?php echo $form->error($model['info'],'user_type',array('style'=>'color:#d04526')); ?>
                             </p>

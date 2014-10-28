@@ -96,7 +96,7 @@ $status = $model->isNewRecord ? 'Tạo Mới ' : 'Cập Nhật ';
                     </div>
                     <div class="rowElem">
                         <label><?php echo $form->labelEx($model['info'],'user_type'); ?></label>
-                        <div class="formRight"><?php echo $form->textField($model['info'],'user_type',array('size'=>60,'maxlength'=>255)); ?></div>
+                        <div class="formRight"><?php echo $form->dropDownList($model['info'],'user_type',UserInfo::model()->getUserType(),array('class'=>'form-control','placeholder'=>'Bạn là')); ?></div>
                         <div class="fix"><?php echo $form->error($model['info'],'user_type'); ?></div>
                     </div>
                     <div class="rowElem">
