@@ -11,6 +11,8 @@
  * @property string $number
  * @property string $owner
  * @property string $branch
+ * @property string $update_code
+ * @property integer $as_default
  */
 class PaymentInfo extends CActiveRecord
 {
@@ -30,12 +32,12 @@ class PaymentInfo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, type, number', 'required'),
-			array('user_id, identity_card', 'numerical', 'integerOnly'=>true),
-			array('type, number, owner, branch', 'length', 'max'=>255),
+		//	array('identity_card,type, number,owner', 'required','message'=>"Vui lòng nhập '{attribute}'"),
+			array('user_id, identity_card, as_default', 'numerical', 'integerOnly'=>true),
+			array('type, number, owner, branch, update_code', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, identity_card, type, number, owner, branch', 'safe', 'on'=>'search'),
+			array('id, user_id, identity_card, type, number, owner, branch, update_code, as_default', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +65,8 @@ class PaymentInfo extends CActiveRecord
 			'number' => 'Number',
 			'owner' => 'Owner',
 			'branch' => 'Branch',
+			'update_code' => 'Update Code',
+			'as_default' => 'As Default',
 		);
 	}
 
@@ -91,6 +95,8 @@ class PaymentInfo extends CActiveRecord
 		$criteria->compare('number',$this->number,true);
 		$criteria->compare('owner',$this->owner,true);
 		$criteria->compare('branch',$this->branch,true);
+		$criteria->compare('update_code',$this->update_code,true);
+		$criteria->compare('as_default',$this->as_default);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

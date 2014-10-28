@@ -122,4 +122,13 @@ class UserInfo extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    public function getUserType(){
+        return array('1'=>'Mới bắt đầu','2'=>'Wap master','3'=>'Developer','4'=>'Marketer');
+    }
+    public function getUserTypeText($typeId){
+       $userTypeList = $this->getUserType();
+        if(isset($userTypeList[$typeId]))
+            return $userTypeList[$typeId];
+        return "Undefined";
+    }
 }

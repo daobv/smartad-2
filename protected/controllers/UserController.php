@@ -32,7 +32,7 @@ class UserController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','revenue','logout','info'),
+				'actions'=>array('create','update','revenue','logout','info','PaymentInfo'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -265,7 +265,50 @@ class UserController extends Controller
        // $this->redirect('/');
     }
     public function actionInfo(){
-        $model = new UserInfo();
+        $userId = Yii::app()->user->id;
+        $model = $this->loadModel($userId);
+        unset($model->password);
+        if(isset($_POST['User']))
+        {
+            $model->attributes=$_POST['User'];
+            if($model->password != ""){
+                $model->password = $model->hashPassword($model->password);
+            }else{
+                unset($model->password);
+            }
+            $model->username = Yii::app()->user->name;
+            $model->email = Yii::app()->user->email;
+            if($model->save()){
+                $userInfo = UserInfo::model()->findByAttributes(array('user_id'=>$model->id));
+                $userInfo->attributes=$_POST['UserInfo'];
+                if($userInfo->save()){
+                    Yii::app()->user->setFlash('success', "Cập nhật thành công!");
+                }else{
+                    Yii::app()->user->setFlash('error', "Lỗi xảy ra khi cập nhật!");
+                }
+            }
+        }
         $this->render('info',array('model'=>$model));
+    }
+    public function actionPaymentInfo(){
+        $userId=Yii::app()->user->id;
+        $model = PaymentInfo::model()->findByAttributes(array('user_id'=>$userId));
+        if(!$model){
+            $model = new PaymentInfo();
+            $model->user_id = $userId;
+            $model->search();
+        }
+        $this->performAjaxValidation($model);
+        if(isset($_POST['PaymentInfo']))
+        {
+            $model->attributes=$_POST['PaymentInfo'];
+            if(!$model->save()){
+                Yii::app()->user->setFlash('success', "Cập nhật thành công!");
+            }else{
+                Yii::app()->user->setFlash('error', "Lỗi xảy ra khi cập nhật!");
+            }
+
+        }
+        $this->render('paymentInfo',array('model'=>$model));
     }
 }

@@ -11,6 +11,8 @@ return CMap::mergeArray(
                     'chuyen-muc/<slug>' => 'category/index',
                     'static-page/<slug>' => 'staticPage/index',
                     'application/<slug>' => 'application/view',
+                    'user/account-info' => 'user/info',
+                    'user/payment-info' => 'user/paymentInfo',
                     'cpi/<user>/<app_code>' =>'interaction/create',
                     'incoming/<app_code>/<hash_code>' =>'interaction/update',
                     'dang-nhap' => 'user/login',
