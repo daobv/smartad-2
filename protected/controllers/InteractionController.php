@@ -73,7 +73,7 @@ class InteractionController extends Controller
             if(!$interactionInfoData)
                 break;
         }
-        $redirectUrl = str_replace("hashCode",$hashCode,$application->link);
+        $redirectUrl = str_replace("{hashCode}",$hashCode,$application->link);
         $date=date('ymd',time());
         $interaction = Interaction::model()->findByAttributes(array('app_id'=>$application->id,'user_id'=>$user->id,'date'=>$date));
 
@@ -103,8 +103,9 @@ class InteractionController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($app_code,$hash_code)
+	public function actionUpdate($app_code)
 	{
+        $hash_code = Yii::app()->request->getParam("hash_code");
         $interactionInfo = InteractionInfo::model()->findByAttributes(array('hash_code'=>$hash_code));
         if($interactionInfo && $interactionInfo->status == 0){
             $requestIp = $_SERVER['REMOTE_ADDR'];

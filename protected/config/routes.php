@@ -14,7 +14,7 @@ return CMap::mergeArray(
                     'user/account-info' => 'user/info',
                     'user/payment-info' => 'user/paymentInfo',
                     'cpi/<user>/<app_code>' =>'interaction/create',
-                    'incoming/<app_code>/<hash_code>' =>'interaction/update',
+                    'incoming/<app_code>/<code>' =>'interaction/update',
                     'dang-nhap' => 'user/login',
                 ),
             ),
