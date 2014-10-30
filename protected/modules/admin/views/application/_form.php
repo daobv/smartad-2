@@ -137,10 +137,15 @@ $status = $model->isNewRecord ? 'Tạo Mới ' : 'Cập Nhật ';
                 <div class="rowElem">
                     <label><?php echo $form->labelEx($model, 'content'); ?>
                         <div
-                            class="formRight"><?php echo $form->textArea($model, 'content', array('rows' => 6, 'cols' => 58)); ?></div>
+                            class="formRight"><?php echo $form->textArea($model, 'content', array('rows' => 6, 'cols' => 58,'class'=>'tinyMCE')); ?></div>
                         <div class="fix"><?php echo $form->error($model, 'content'); ?></div>
                 </div>
-
+                <div class="rowElem">
+                    <label><?php echo $form->labelEx($model, 'policy'); ?>
+                        <div
+                            class="formRight"><?php echo $form->textArea($model, 'policy', array('rows' => 6, 'cols' => 58,'class'=>'tinyMCE')); ?></div>
+                        <div class="fix"><?php echo $form->error($model, 'policy'); ?></div>
+                </div>
                 <div class="rowElem">
                     <label><?php echo $form->labelEx($model, 'link'); ?></label>
 
@@ -148,7 +153,13 @@ $status = $model->isNewRecord ? 'Tạo Mới ' : 'Cập Nhật ';
                         class="formRight"><?php echo $form->textField($model, 'link', array('size' => 60, 'maxlength' => 255)); ?></div>
                     <div class="fix"><?php echo $form->error($model, 'link'); ?></div>
                 </div>
+                <div class="rowElem">
+                    <label><?php echo $form->labelEx($model, 'file_url'); ?></label>
 
+                    <div
+                        class="formRight"><?php echo $form->textField($model, 'file_url', array('size' => 60, 'maxlength' => 255)); ?></div>
+                    <div class="fix"><?php echo $form->error($model, 'file_url'); ?></div>
+                </div>
                 <div class="rowElem">
                     <label><?php echo $form->labelEx($model, 'price'); ?></label>
 
@@ -162,14 +173,6 @@ $status = $model->isNewRecord ? 'Tạo Mới ' : 'Cập Nhật ';
                     <div class="formRight"><?php echo $form->textField($model, 'size'); ?></div>
                     <div class="fix"><?php echo $form->error($model, 'size'); ?></div>
                 </div>
-
-                <div class="rowElem">
-                    <label><?php echo $form->labelEx($model, 'registered_date'); ?></label>
-
-                    <div class="formRight"><?php echo $form->textField($model, 'registered_date'); ?></div>
-                    <div class="fix"><?php echo $form->error($model, 'registered_date'); ?></div>
-                </div>
-
                 <div class="rowElem buttons">
                     <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
                 </div>
@@ -184,7 +187,7 @@ $status = $model->isNewRecord ? 'Tạo Mới ' : 'Cập Nhật ';
         src="<?php echo Setting::getSetting('site_url'); ?>/resource/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
     tinymce.init({
-        selector: 'textarea',
+        selector: "textArea.tinyMCE",
         height: 300,
         width: 600,
         theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough," +

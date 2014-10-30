@@ -18,7 +18,9 @@
  * @property string $to
  * @property integer $status_id
  * @property string $content
+ * @property string $policy
  * @property string $link
+ * @property string $file_url
  * @property double $price
  * @property string $size
  * @property string $registered_date
@@ -41,21 +43,15 @@ class Application extends Model
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name,app_code, slug, image, adv_type, platform_id, appearance_id, status_id, content, link, price, registered_date', 'required'),
+			array('name, slug, image, adv_type, platform_id, appearance_id, status_id, content, policy, price', 'required'),
 			array('adv_type, platform_id, appearance_id, status_id', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
-			array('name, app_code, slug, image, size', 'length', 'max'=>255),
+			array('name, app_code, slug, image, file_url, size', 'length', 'max'=>255),
 			array('area, link', 'length', 'max'=>1024),
-            array('slug','unique','enableClientValidation'=>true,
-                'attributeName'=>'slug','className'=>'Application','skipOnError'=>false,
-                'message'=>"'{value}' đã tồn tại"),
-            array('app_code','unique','enableClientValidation'=>true,
-                'attributeName'=>'app_code','className'=>'Application','skipOnError'=>false,
-                'message'=>"'{value}' đã tồn tại"),
-			array('short_description, from, to', 'safe'),
+			array('short_description, from, to, registered_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, app_code, slug, image, short_description, adv_type, platform_id, appearance_id, area, from, to, status_id, content, link, price, size, registered_date', 'safe', 'on'=>'search'),
+			array('id, name, app_code, slug, image, short_description, adv_type, platform_id, appearance_id, area, from, to, status_id, content, policy, link, file_url, price, size, registered_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -93,7 +89,9 @@ class Application extends Model
 			'to' => 'To',
 			'status_id' => 'Status',
 			'content' => 'Content',
+			'policy' => 'Policy',
 			'link' => 'Link',
+			'file_url' => 'File Url',
 			'price' => 'Price',
 			'size' => 'Size',
 			'registered_date' => 'Registered Date',
@@ -132,7 +130,9 @@ class Application extends Model
 		$criteria->compare('to',$this->to,true);
 		$criteria->compare('status_id',$this->status_id);
 		$criteria->compare('content',$this->content,true);
+		$criteria->compare('policy',$this->policy,true);
 		$criteria->compare('link',$this->link,true);
+		$criteria->compare('file_url',$this->file_url,true);
 		$criteria->compare('price',$this->price);
 		$criteria->compare('size',$this->size,true);
 		$criteria->compare('registered_date',$this->registered_date,true);

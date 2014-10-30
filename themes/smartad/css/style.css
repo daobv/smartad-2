@@ -786,3 +786,132 @@ table#tableTop5 td {
     overflow: hidden;
     border-radius: 6px;
 }
+.box.border>.box-title, .box.solid>.box-title {
+    padding: 8px 10px 2px;
+    border-bottom: 1px solid #c4c4c4;
+    min-height: 30px;
+    background-color: #dbdbdb;
+    margin-bottom: 0;
+}
+.box.border>.box-title h4, .box.solid>.box-title h4 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 7px;
+}
+.box.border>.box-title h4 i, .box.solid>.box-title h4 i {
+    margin-right: 10px;
+    color: #666;
+}
+.box.border .box-body, .box.solid .box-body {
+    border-radius: 0 0 4px 4px;
+    padding: 10px;
+    background-color: #fff;
+}
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+.box .header-tabs .nav-tabs {
+    border-bottom: 0 none;
+    margin-right: 0;
+    overflow: hidden;
+    position: relative;
+    top: -46px;
+}
+.nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+.box .header-tabs .nav-tabs>li {
+    float: right;
+    margin-left: 1px;
+}
+.box .header-tabs .nav-tabs>li.active a, .box .header-tabs .nav-tabs>li.active a:after, .box .header-tabs .nav-tabs>li.active a:before {
+    background: #fff;
+    z-index: 3;
+}
+.box .header-tabs .nav-tabs>li>a {
+    position: relative;
+    background: #eee;
+    padding: 7px 15px;
+    float: left;
+    text-decoration: none;
+    color: #444;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+    border-radius: 5px 0 0 0;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+    margin-right: 15px;
+    border-top: 1px solid #d0d0d0;
+}
+.box .header-tabs .nav-tabs>li>a:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    left: -10px;
+    bottom: 0;
+    width: 1em;
+    background: #eee;
+    border-left: 1px solid #d0d0d0;
+    border-top: 1px solid #d0d0d0;
+    transform: skew(170deg);
+     -webkit-transform: skew(170deg);
+     border-radius: 5px 0 0 0;
+}
+.box .header-tabs .nav-tabs>li.active a, .box .header-tabs .nav-tabs>li.active a:after, .box .header-tabs .nav-tabs>li.active a:before {
+    background: #fff;
+   z-index: 3;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+.box .header-tabs .nav-tabs>li>a {
+    position: relative;
+    background: #eee;
+    padding: 7px 15px;
+    float: left;
+    text-decoration: none;
+    color: #444;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+     border-radius: 5px 0 0 0;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+    margin-right: 15px;
+    border-top: 1px solid #d0d0d0;
+}
+.box .header-tabs .nav-tabs>li>a:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    right: -0.5em;
+    bottom: 0;
+    width: 1em;
+    background: #eee;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    border-top: 1px solid #d0d0d0;
+    transform: skew(10deg);
+    -webkit-transform: skew(10deg);
+    border-radius: 0 5px 0 0;
+}
+.hidden-inline-mobile {
+    display: inline!important;
+}
+@media (max-width: 768px){
+    .hidden-inline-mobile {
+        display: none!important;
+    }
+}
+@media (max-width: 991px){
+    .nav {
+        margin-right: 0px !important;
+    }
+}
+
