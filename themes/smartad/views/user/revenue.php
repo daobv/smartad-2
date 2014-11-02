@@ -74,7 +74,7 @@
                             <a href="<?php echo Yii::app()->createUrl('user/revenue',array('from'=>date('ymd'),'to'=>date('ymd',time()))); ?>">HÔM NAY<span class="number"> <?php echo $todayRevenue; ?></php></span> VNĐ</a>
                         </div>
                         <div class="col-md-6 price-header" style="color: #6fa4d8">
-                            <a href="<?php echo Yii::app()->createUrl('user/revenue',array('from'=>date('ymd',strtotime('-1 month')),'to'=>date('ymd',time()))); ?>">THÁNG
+                            <a href="<?php echo Yii::app()->createUrl('user/revenue',array('from'=>date('ym',time())."01",'to'=>date('ymd',time()))); ?>">THÁNG
                                 NÀY <span class="number"> <?php echo $monthRevenue; ?></span> VNĐ</a>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
         </div>
         <div>
             <div style="clear: both; width: 100%"></div>
-            <div class="col-md-12">
+
                 <div class="col-md-12"
                      style="background:#fff; margin-top: 15px; padding-top: 15px; padding-bottom:15px;">
                     <h4 class="header-box-db" style="margin-top: 1px"><i class="fa fa-bar-chart-o"></i> THỐNG KÊ DOANH
@@ -110,7 +110,7 @@
                         ?>
                     </div>
                 </div>
-            </div>
+
             <div class="col-md-12" style="margin-bottom: 20px">
                 <?php $this->widget("ApplicationTable");?>
             </div>

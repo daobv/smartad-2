@@ -10,9 +10,10 @@
     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl?>/js/jquery.js" ></script>
     <title><?php echo Setting::model()->getSetting("title"); ?></title>
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo Yii::app()->theme->baseUrl?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl?>/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl?>/css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl?>/css/smartad-theme.css"/>
+
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->

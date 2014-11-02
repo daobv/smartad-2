@@ -58,7 +58,7 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="sales">
-                                <div class="panel panel-default">
+                                <div class="panel">
                                     <?php echo $model->content;?>
                                 </div>
                             </div>

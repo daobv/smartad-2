@@ -14,10 +14,10 @@
                 <div class="box-body">
                     <div class="tabbable header-tabs">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#sales" data-toggle="tab"><i class="fa fa-thumbs-o-up"></i> <span
-                                        class="hidden-inline-mobile">Đang Chạy</span></a></li>
-                            <li class=""><a href="#feed" data-toggle="tab"><i class="fa fa-thumbs-o-down"></i> <span
-                                        class="hidden-inline-mobile">Tạm Dừng</span></a>
+                            <li class="active"><a href="#sales" data-toggle="tab"><i class="fa fa-thumbs-o-up"></i>
+                                    <span>Đang Chạy</span></a></li>
+                            <li class=""><a href="#feed" data-toggle="tab"><i class="fa fa-thumbs-o-down"></i>
+                                    <span>Tạm Dừng</span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -25,7 +25,7 @@
                                 <div class="panel panel-default">
                                     <?php foreach ($model as $k => $app): ?>
                                         <?php if ($k % 2 == 0): ?>
-                                            <div class="col-md-6 list-product-left">
+                                            <div class="col-md-6 list-product-left" style="padding-left: 0px">
                                                 <div class="list_product">
                                                     <div class="p10">
                                                         <div class="thumb_p">
@@ -49,7 +49,7 @@
                                                 </div>
                                             </div>
                                         <?php else: ?>
-                                            <div class="col-md-6 list-product-right">
+                                            <div class="col-md-6 list-product-right" style="padding-left: 0px">
                                                 <div class=".list_product-left">
                                                     <div class="p10">
                                                         <div class="thumb_p">
@@ -80,7 +80,7 @@
                                 <div class="panel panel-default">
                                     <?php foreach ($holdingApp as $k => $app): ?>
                                         <?php if ($k % 2 == 0): ?>
-                                            <div class="col-md-6 list-product-left">
+                                            <div class="col-md-6" style="padding-left: 0px">
                                                 <div class="list_product">
                                                     <div class="p10">
                                                         <div class="thumb_p">
@@ -104,7 +104,7 @@
                                                 </div>
                                             </div>
                                         <?php else: ?>
-                                            <div class="col-md-6 list-product-right">
+                                            <div class="col-md-6" style="padding-left: 0px">
                                                 <div class=".list_product-left">
                                                     <div class="p10">
                                                         <div class="thumb_p">

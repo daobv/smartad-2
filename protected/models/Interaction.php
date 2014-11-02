@@ -128,10 +128,10 @@ class Interaction extends Model
         return $interaction;
     }
     public function getMonthRevenue($user_id){
-        $startMonth = "1".date('md',time());
-        $endMonth = "31".date('md',time());
+        $startMonth = "1".date('ymd',time());
+        $endMonth = "31".date('ymd',time());
         $interaction = Interaction::model()->findBySql("SELECT SUM(revenue) as revenue  FROM ".$this->tableName()." WHERE user_id = ".$user_id. " AND date <= ".$endMonth. " && date >= ".$startMonth);
-        if($interaction){
+        if($interaction->revenue){
             return $interaction->revenue;
         }
         return 0;
