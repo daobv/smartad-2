@@ -9,8 +9,8 @@
                 <span class="add-on"><a href="#"><i
                             class="icon-step-backward"></i></a></span>
             <span class="reportrange input-large uneditable-input" style="width: 200px">
-               <span id="report-rang-custom"><?php echo date("m/d/Y", strtotime('-6 day')); ?>
-                   - <?php echo date("d/m/Y"); ?></span>
+                <span id="report-rang-custom"><?php echo $dateParams[0]."/".date('Y'); ?>
+                   - <?php echo $dateParams[count($dateParams)-1]."/".date('Y'); ?></span>
             </span>
                             <span class="add-on reportrange"><i class="icon-calendar icon-large"></i></span>
                 <span class="add-on"><a href="#"><i
@@ -21,7 +21,6 @@
                           href="<?php echo Yii::app()->theme->baseUrl; ?>/css/daterangepicker-bs2.css"/>
                     <script type="text/javascript"
                             src="<?php echo Yii::app()->theme->baseUrl; ?>/js/moment.js"></script>
-                    `
                     <script type="text/javascript"
                             src="<?php echo Yii::app()->theme->baseUrl; ?>/js/daterangepicker.js"></script>
 
@@ -29,8 +28,8 @@
                         $('.reportrange').daterangepicker(
                             {
                                 format: 'DD/MM/YYYY',
-                                startDate: '<?php echo date("d/m/Y", strtotime('-6 day'));?>',
-                                endDate: '<?php echo date("d/m/Y");?>',
+                                startDate: '<?php echo $dateParams[0]."/".date('Y');?>',
+                                endDate: '<?php echo $dateParams[count($dateParams)-1]."/".date('Y');?>',
                                 separator: 'to',
                                 locale: {
                                     applyLabel: 'Xem',
@@ -59,17 +58,9 @@
                                window.location.replace("<?php echo Yii::app()->createUrl('user/revenue'); ?>?from="+start_date+"&&to="+end_date);
 
                             }
-                            /*function (start, end) {
-                             $('#filter-date').val('specific');
-                             $('#filter-startdate').val(start.format('YYYY-MM-DD'));
-                             $('#filter-enddate').val(end.format('YYYY-MM-DD'));
-                             var start_date = start.format('YYYY-MM-DD');
-                             var end_date = end.format('YYYY-MM-DD');
-                             }*/
                         );
                         function convert_date(date_check) {
                             var res = date_check.split('-');
-                            //console.log(res);
                             var day_get = res[2];
                             var month_get = res[1];
                             var year_get = res[0].toString();

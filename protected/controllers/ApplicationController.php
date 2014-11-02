@@ -28,7 +28,7 @@ class ApplicationController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('view'),
+				'actions'=>array('view','admin'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -36,7 +36,7 @@ class ApplicationController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -123,13 +123,11 @@ class ApplicationController extends Controller
 	 */
 	public function actionIndex()
 	{
-        $model=new Application('search');
-        $model->unsetAttributes();  // clear any default values
-        if(isset($_GET['Application']))
-            $model->attributes=$_GET['Application'];
-
+        $runningApp = Application::model()->findAll(array('order'=>'id DESC', 'condition'=>'status_id=:status', 'params'=>array(':status'=>3)));
+        $holdingApp = Application::model()->findAll(array('order'=>'id DESC', 'condition'=>'status_id=:status', 'params'=>array(':status'=>2)));
         $this->render('admin',array(
-            'model'=>$model,
+            'model'=>$runningApp,
+            'holdingApp'=>$holdingApp
         ));
 	}
 
@@ -138,7 +136,7 @@ class ApplicationController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Application('search');
+        $model=new Application('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Application']))
 			$model->attributes=$_GET['Application'];

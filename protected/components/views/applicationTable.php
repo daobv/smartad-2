@@ -1,22 +1,23 @@
 <h4 style="margin-top: 1px">
     <i class="fa fa-star"></i>
     Danh Sách Ứng Dụng
-    <table class="table-responsive table table-striped table-hover dataTable no-footer" id="tableTop5">
-        <thead>
-        <tr>
-            <th width="" class="number">Ứng Dụng</th>
-            <th width="10%" class="number">Hình Thức</th>
-            <th width="10%" class="number">Action</th>
-            <th width="10%" class="number">Clicks</th>
-
-            <th width="20%" class="number">Doanh Thu</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach($data as $value):?>
+</h4>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+        <th><i class="fa fa-bars"> </i> Ứng Dụng</th>
+        <th class="hidden-xs"> <i class="fa fa-quote-left"> </i> Hình Thức</th>
+        <th><i class="fa fa-mobile"> </i> Action</th>
+        <th><i class="fa fa-cloud-download"> </i> Clicks</th>
+        <th class="hidden-xs"> <i class="fa fa-quote-left"> </i> CR</th>
+        <th><i class="fa fa-dollar"> </i> Doanh Thu</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($data as $value):?>
         <?php $application = Application::model()->findByPk($value['app_id']);?>
         <?php if($application):?>
-        <tr>
+            <tr>
 
             <td><a href="#">
                     <img src="<?php echo $application->image; ?>"
@@ -24,7 +25,7 @@
                     <?php echo $application->name;?>
                 </a>
             </td>
-            <td><i class="<?php echo $application['appearance']['image']; ?>" style="font-size: 16px; color: #8dc63f;"></i>
+            <td class="hidden-xs"><i class="<?php echo $application['appearance']['image']; ?>" style="font-size: 16px; color: #8dc63f;"></i>
                 <?php echo $application['appearance']['name'];?>
             </td>
             <td>
@@ -33,13 +34,14 @@
             <td>
                 <?php echo $value['day_click']; ?>
             </td>
-
+            <td class="hidden-xs">
+                0.00%
+            </td>
             <td>
                 <?php printf("%3.0f",$value['revenue']);?> VNĐ
             </td>
-                    <?php endif;?>
+        <?php endif;?>
         </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-</h4>
+    <?php endforeach; ?>
+    </tbody>
+</table>

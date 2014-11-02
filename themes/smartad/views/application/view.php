@@ -21,7 +21,6 @@
                     <?php echo $model['appearance']['name'] ?> <i class="<?php echo $model['appearance']['image'] ?>"
                                                                   style="font-size: 16px; color: #b3c833;"></i>
                 </p>
-
                 <p><span
                         style="font-weight: bold; color: #09468b"> Chấp nhận khu vực:</span> <?php echo $model['area'] ?>
                 </p>

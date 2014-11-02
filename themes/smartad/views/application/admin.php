@@ -5,46 +5,135 @@
 ?>
 <div class="container">
     <div class="row">
-
         <div class="col-md-12">
-            <?php $this->widget('zii.widgets.grid.CGridView', array(
-                'id' => 'application-grid',
-                'dataProvider' => $model->search(),
-                'itemsCssClass'=>'table-responsive table table-striped table-hover dataTable no-footer',
-                'summaryText' => '<h5 class="iFrames">Hiển thị từ {start} đến {end} trên {count} ứng dụng</h5>',
-                'columns' => array(
-                    array(
-                        "name" => "",
-                        'type' => 'html',
-                        "value" => 'CHtml::link(CHtml::image($data->image,$data->name,array("style"=>"height:40px;"))
-                    ,$data->image,array("id"=>"application-image"))',
-                        'filter' => "",
-                        'htmlOptions' => array('style' => 'width:5%;height:10px'),
-                    ),
-                    array(
-                        'header'=>'Ứng Dụng',
-                        'type'=>'raw',
-                        'headerHtmlOptions'=>array('style'=>'padding-left:0px'),
-                        'value'=>'CHtml::link($data->name,Yii::app()->createUrl("application/".$data->slug))',
-                    ),
-                    array(
-                        'header'=>'Hình Thức',
-                        'htmlOptions' =>array('style'=>'width:10%'),
-                        'value'=>'$data["appearance"]["name"]',
-                        'filter'=>CHtml::listData(AdvApperance::model()->findAll(), 'id', 'name')
-                    ),
-                    array(
-                        'header'=>'Giá',
-                        'value'=>'$data["price"]." VNĐ"'
-                    ),
-                    array(
-                        'header'=>'Tình Trạng',
-                        'htmlOptions' =>array('style'=>'width:10%'),
-                        'value'=>'$data["status"]["name"]',
-                        'filter'=>CHtml::listData(AdvStatus::model()->findAll(), 'id', 'name')
-                    ),
-                ),
-            )); ?>
+            <div class="box ">
+                <div class="box-title-blank">
+                    <h4><i class="fa fa-list"></i> <span>Danh sách ứng dụng</span></h4>
+                </div>
+            </div>
+                <div class="box-body">
+                    <div class="tabbable header-tabs">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#sales" data-toggle="tab"><i class="fa fa-thumbs-o-up"></i> <span
+                                        class="hidden-inline-mobile">Đang Chạy</span></a></li>
+                            <li class=""><a href="#feed" data-toggle="tab"><i class="fa fa-thumbs-o-down"></i> <span
+                                        class="hidden-inline-mobile">Tạm Dừng</span></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="sales">
+                                <div class="panel panel-default">
+                                    <?php foreach ($model as $k => $app): ?>
+                                        <?php if ($k % 2 == 0): ?>
+                                            <div class="col-md-6 list-product-left">
+                                                <div class="list_product">
+                                                    <div class="p10">
+                                                        <div class="thumb_p">
+                                                            <img src="<?php echo $app->image; ?>" alt="">
+                                                        </div>
+                                                        <div class="c_p">
+                                                            <div class="h_t_p">
+                                                                <div class="t_p"><a
+                                                                        href="<?php echo Yii::app()->createUrl('application/' . $app->slug); ?>"><?php echo $app->name; ?> </a>
+                                                                    <span class="muted"><?php echo $app['status']['name'] ?></span></div>
+                                                                <!--<div class="adv_p"><a href="/"></a></div>-->
+                                                            </div>
+                                                            <div class="c_info_p"><?php echo $app->short_description; ?></div>
+                                                            <div class="f_p">
+                                                                <a class="price" href="">Giá: <?php echo $app->price; ?></a>
+                                                                <a class="ht" href=""><?php echo $app['type']['name']; ?></a>
+                                                                <a class="theloai" href=""><?php echo $app['appearance']['name']; ?></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="col-md-6 list-product-right">
+                                                <div class=".list_product-left">
+                                                    <div class="p10">
+                                                        <div class="thumb_p">
+                                                            <img src="<?php echo $app->image; ?>" alt="">
+                                                        </div>
+                                                        <div class="c_p">
+                                                            <div class="h_t_p">
+                                                                <div class="t_p"><a
+                                                                        href="<?php echo Yii::app()->createUrl('application/' . $app->slug); ?>"><?php echo $app->name; ?> </a>
+                                                                    <span class="muted"><?php echo $app['status']['name'] ?></span></div>
+                                                                <!--<div class="adv_p"><a href="/"></a></div>-->
+                                                            </div>
+                                                            <div class="c_info_p"><?php echo $app->short_description; ?></div>
+                                                            <div class="f_p">
+                                                                <a class="price" href="">Giá: <?php echo $app->price; ?></a>
+                                                                <a class="ht" href=""><?php echo $app['type']['name']; ?></a>
+                                                                <a class="theloai" href=""><?php echo $app['appearance']['name']; ?></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="feed">
+                                <div class="panel panel-default">
+                                    <?php foreach ($holdingApp as $k => $app): ?>
+                                        <?php if ($k % 2 == 0): ?>
+                                            <div class="col-md-6 list-product-left">
+                                                <div class="list_product">
+                                                    <div class="p10">
+                                                        <div class="thumb_p">
+                                                            <img src="<?php echo $app->image; ?>" alt="">
+                                                        </div>
+                                                        <div class="c_p">
+                                                            <div class="h_t_p">
+                                                                <div class="t_p"><a
+                                                                        href="<?php echo Yii::app()->createUrl('application/' . $app->slug); ?>"><?php echo $app->name; ?> </a>
+                                                                    <span class="muted"><?php echo $app['status']['name'] ?></span></div>
+                                                                <!--<div class="adv_p"><a href="/"></a></div>-->
+                                                            </div>
+                                                            <div class="c_info_p"><?php echo $app->short_description; ?></div>
+                                                            <div class="f_p">
+                                                                <a class="price" href="">Giá: <?php echo $app->price; ?></a>
+                                                                <a class="ht" href=""><?php echo $app['type']['name']; ?></a>
+                                                                <a class="theloai" href=""><?php echo $app['appearance']['name']; ?></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="col-md-6 list-product-right">
+                                                <div class=".list_product-left">
+                                                    <div class="p10">
+                                                        <div class="thumb_p">
+                                                            <img src="<?php echo $app->image; ?>" alt="">
+                                                        </div>
+                                                        <div class="c_p">
+                                                            <div class="h_t_p">
+                                                                <div class="t_p"><a
+                                                                        href="<?php echo Yii::app()->createUrl('application/' . $app->slug); ?>"><?php echo $app->name; ?> </a>
+                                                                    <span class="muted"><?php echo $app['status']['name'] ?></span></div>
+                                                                <!--<div class="adv_p"><a href="/"></a></div>-->
+                                                            </div>
+                                                            <div class="c_info_p"><?php echo $app->short_description; ?></div>
+                                                            <div class="f_p">
+                                                                <a class="price" href="">Giá: <?php echo $app->price; ?></a>
+                                                                <a class="ht" href=""><?php echo $app['type']['name']; ?></a>
+                                                                <a class="theloai" href=""><?php echo $app['appearance']['name']; ?></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </div>

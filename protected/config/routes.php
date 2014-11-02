@@ -10,6 +10,7 @@ return CMap::mergeArray(
                 'rules'     => array(
                     'chuyen-muc/<slug>' => 'category/index',
                     'static-page/<slug>' => 'staticPage/index',
+                    'application' => 'application/index',
                     'application/<slug>' => 'application/view',
                     'user/account-info' => 'user/info',
                     'user/payment-info' => 'user/paymentInfo',
