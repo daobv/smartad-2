@@ -292,10 +292,10 @@ ul .list-news{
     padding-left: 0px; font-size: 12px
 }
 .list-news li {
-    background: #f1f1f1;
+
     margin-bottom: 5px;
     overflow: hidden;
-    border-radius: 6px;
+
     padding-bottom: 10px;
     list-style: none;
 }
@@ -784,7 +784,6 @@ table#tableTop5 td {
     background: #f1f1f1;
     margin-bottom: 5px;
     overflow: hidden;
-    border-radius: 6px;
 }
 .box.border>.box-title, .box.solid>.box-title {
     padding: 8px 10px 2px;
@@ -922,8 +921,7 @@ margin-bottom: 20px;
     border: 1px solid #9db36a;
 }
 .box.border, .box.solid {
-    border: 1px solid #c4c4c4;
-    border-radius: 4px;
+
 }
 .box {
     clear: both;
@@ -1028,4 +1026,37 @@ margin-bottom: 20px;
     border-right: 1px solid #ccc;
     text-decoration: none;
     color: #006BD7;
+}
+.message {
+    padding: 10px;
+    background-color: #66B3FF;
+    border: solid 1px #53A9FF;
+    color: #fff;
+    margin: 5px 0;
+    font-size: 12px;
+}
+.message.ms_warning {
+    background: none repeat scroll 0 0 #518DC2;
+    font-weight: bold;
+    border: solid 1px #6E8BBA;
+    color: #fff;
+    position: relative;
+    line-height: 20px;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.45);
+}
+.mss_clostbtn {
+    position: absolute;
+    right: 5px;
+    top: 1px;
+    height: 22px;
+    width: 22px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAy0lEQVR42u2SsQ5EQBCGPcq9+ZREYRv99RIRtcUjaNHM7SeIiOJ2XXOJP5mYzKyPnX+i6NGjr5WmaWWM0TiO5dyjlmWZJklivMFlWWrXdcrTfWCHk1Nr21aLolBvsHtRpmnSYRi0rmvN81wIcmrjOAKXoHE4gMzzvICaplmCfK3JrVlvcP6Q+AkUWWsF4CZyaregzJTrn8HU6AVBcX8zius7IzFznzm947Z4rduVUUdDOeMNdjtcresmV4bSc2feQePo+/4V0nv05/oAAJAOOGdbR1YAAAAASUVORK5CYII=") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+.post-title{
+    padding: 0px 0px 7px;
+    margin-bottom: 10px;
+    text-transform: none;
+    line-height: 24px;
+    border-bottom: 1px solid #0063AF;
 }

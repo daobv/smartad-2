@@ -1,5 +1,6 @@
 <div class="container">
     <div class="row content-site">
+        <?php $this->widget("WarningWidget");?>
         <div class="col-md-12">
             <div class="col-md-12 filter-head">
                 <div class="col-md-3 nopadding">

@@ -32,7 +32,7 @@ class UserController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','revenue','logout','info','PaymentInfo'),
+				'actions'=>array('create','update','revenue','logout','info','PaymentInfo','closewarning'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -310,5 +310,9 @@ class UserController extends Controller
 
         }
         $this->render('paymentInfo',array('model'=>$model));
+    }
+    public function actionCloseWarning(){
+        $id= $_GET['id'];
+        $_SESSION["$id"] = 1;
     }
 }

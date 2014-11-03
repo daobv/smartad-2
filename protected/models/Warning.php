@@ -1,24 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "user".
+ * This is the model class for table "warning".
  *
- * The followings are the available columns in table 'user':
+ * The followings are the available columns in table 'warning':
  * @property integer $id
- * @property string $username
- * @property string $password
- * @property string $email
- * @property integer $user_role
- * @property integer $user_group
+ * @property string $message
+ * @property string $create_at
+ * @property string $expire_at
+ * @property integer $author
+ * @property string $note
+ * @property integer $status
  */
-class User extends CActiveRecord
+class Warning extends Model
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'user';
+		return 'warning';
 	}
 
 	/**
@@ -29,12 +30,13 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, email', 'required'),
-			array('user_role, user_group', 'numerical', 'integerOnly'=>true),
-			array('username, password, email', 'length', 'max'=>255),
+			array('message, expire_at', 'required'),
+			array('author, status', 'numerical', 'integerOnly'=>true),
+			array('note', 'length', 'max'=>255),
+			array('create_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, email, user_role, user_group', 'safe', 'on'=>'search'),
+			array('id, message, create_at, expire_at, author, note, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,12 +47,8 @@ class User extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-        return array(
-            'role' => array(self::BELONGS_TO, 'UserRole', 'user_role'),
-            'info' => array(self::HAS_ONE, 'UserInfo', 'user_id'),
-            'group'=>array(self::BELONGS_TO,'UserGroup','user_group'),
-            'payment'=>array(self::HAS_ONE,'PaymentInfo','user_id'),
-        );
+		return array(
+		);
 	}
 
 	/**
@@ -60,11 +58,12 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'username' => 'Username',
-			'password' => 'Password',
-			'email' => 'Email',
-			'user_role' => 'User Role',
-			'user_group' => 'User Group',
+			'message' => 'Message',
+			'create_at' => 'Create At',
+			'expire_at' => 'Expire At',
+			'author' => 'Author',
+			'note' => 'Note',
+			'status' => 'Status',
 		);
 	}
 
@@ -87,11 +86,12 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('user_role',$this->user_role);
-		$criteria->compare('user_group',$this->user_group);
+		$criteria->compare('message',$this->message,true);
+		$criteria->compare('create_at',$this->create_at,true);
+		$criteria->compare('expire_at',$this->expire_at,true);
+		$criteria->compare('author',$this->author);
+		$criteria->compare('note',$this->note,true);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -102,13 +102,10 @@ class User extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return User the static model class
+	 * @return Warning the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-    public function hashPassword($password){
-        return md5(md5($password));
-    }
 }

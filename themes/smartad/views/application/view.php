@@ -59,6 +59,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="sales">
                                 <div class="panel">
+                                    <p><b>Link Phân Phối: <a href="<?php echo Yii::app()->createUrl("cpi/".Yii::app()->user->name."/".$model->app_code);?>" target="_blank"><?php echo Yii::app()->getBaseUrl(true)."/cpi/".Yii::app()->user->name."/".$model->app_code; ?></a></b></p>
                                     <?php echo $model->content;?>
                                 </div>
                             </div>
