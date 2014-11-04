@@ -50,6 +50,7 @@ class User extends CActiveRecord
             'info' => array(self::HAS_ONE, 'UserInfo', 'user_id'),
             'group'=>array(self::BELONGS_TO,'UserGroup','user_group'),
             'payment'=>array(self::HAS_ONE,'PaymentInfo','user_id'),
+            'application'=>array(self::HAS_MANY,'Application','merchant_id'),
         );
 	}
 

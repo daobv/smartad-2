@@ -24,6 +24,7 @@
  * @property double $price
  * @property string $size
  * @property string $registered_date
+ * @property string $merchant_id
  */
 class Application extends Model
 {
@@ -44,14 +45,14 @@ class Application extends Model
 		// will receive user inputs.
 		return array(
 			array('name, slug, image, adv_type, platform_id, appearance_id, status_id, content, policy, price', 'required'),
-			array('adv_type, platform_id, appearance_id, status_id', 'numerical', 'integerOnly'=>true),
+			array('adv_type, platform_id, appearance_id, merchant_id, status_id', 'numerical', 'integerOnly'=>true),
 			array('price', 'numerical'),
 			array('name, app_code, slug, image, file_url, size', 'length', 'max'=>255),
 			array('area, link', 'length', 'max'=>1024),
 			array('short_description, from, to, registered_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, app_code, slug, image, short_description, adv_type, platform_id, appearance_id, area, from, to, status_id, content, policy, link, file_url, price, size, registered_date', 'safe', 'on'=>'search'),
+			array('id, name, app_code, slug, image, short_description, adv_type, platform_id, appearance_id, area, from, to, status_id, content, policy, link, file_url, price, size, registered_date,merchant_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -95,6 +96,7 @@ class Application extends Model
 			'price' => 'Price',
 			'size' => 'Size',
 			'registered_date' => 'Registered Date',
+            'merchant_id' => 'Merchant Id',
 		);
 	}
 
@@ -136,7 +138,7 @@ class Application extends Model
 		$criteria->compare('price',$this->price);
 		$criteria->compare('size',$this->size,true);
 		$criteria->compare('registered_date',$this->registered_date,true);
-
+        $criteria->compare('merchant_id',$this->merchant_id,true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

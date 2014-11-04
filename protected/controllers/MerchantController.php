@@ -6,20 +6,27 @@ class MerchantController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	//public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
 	 */
 	public function filters()
 	{
+        if (Yii::app()->user->isGuest)
+            $this->redirect("user/login");
+        else {
+            if (Yii::app()->user->roleId == 6 || Yii::app()->user->roleId == 5) {
+                $this->redirect(Yii::app()->createUrl("user/revenue"));
+                exit();
+            }
+        }
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-
-	/**
+    /**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
@@ -27,12 +34,8 @@ class MerchantController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','index','view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -122,6 +125,9 @@ class MerchantController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $userId = Yii::app()->user->id;
+        $user = User::model()->findByPk($userId);
+        $application = $user['application'];
 		$dataProvider=new CActiveDataProvider('Merchant');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
