@@ -128,10 +128,45 @@ class MerchantController extends Controller
         $userId = Yii::app()->user->id;
         $user = User::model()->findByPk($userId);
         $application = $user['application'];
-		$dataProvider=new CActiveDataProvider('Merchant');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+        if(count($application)==0){
+            $application = Application::model()->findAll(array("order"=>"id DESC"));
+        }
+        $from = (Yii::app()->getRequest()->getParam("from") == null) ? date('ymd',strtotime('-7 days')) : Yii::app()->getRequest()->getParam("from");
+        $to = (Yii::app()->getRequest()->getParam("to") ==  null) ? date('ymd',time()) : Yii::app()->getRequest()->getParam("to");
+        $todayRevenue = Interaction::model()->getTodayRevenue();
+        $dateParams = array();
+        $clickArray = array();
+        $actionArray = array();
+        //$interactions = Interaction::model()->getInteractionByDate($userId,$from,$to);
+        while($from <=  $to){
+            $daySplit = str_split($from,2);
+            $dateParams[] = $daySplit[2]."/".$daySplit[1];
+            $sumClick = 0;
+            $sumAction = 0;
+            foreach($application as $app){
+                $interaction = Interaction::model()->getMerchantInteraction($app->id,$from,$from);
+                if(!$interaction){
+
+                    $sumClick += 0;
+                    $sumAction += 0;
+                }else{
+                     $sumClick += (int)$interaction->day_click;
+                     $sumAction += (int)$interaction->success;
+                }
+            }
+            $clickArray[] = $sumClick;
+            $actionArray[] = $sumAction;
+            $date = date('Y',time());
+            $dateParam = $date."-".$daySplit[1]."-".$daySplit[2];
+            $from = date('ymd',(strtotime('+1 days', strtotime($dateParam))));
+        }
+        $monthRevenue = Interaction::model()->getMonthRevenueByMerchant($userId);
+        $this->render('index',array('todayRevenue'=>$todayRevenue,
+            'dateParams'=>$dateParams,'clickArray'=>$clickArray,
+            'actionArray'=>$actionArray,
+            'monthRevenue'=>$monthRevenue));
+        // $this->redirect('/');
+
 	}
 
 	/**

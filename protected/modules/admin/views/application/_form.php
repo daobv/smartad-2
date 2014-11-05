@@ -173,6 +173,12 @@ $status = $model->isNewRecord ? 'Tạo Mới ' : 'Cập Nhật ';
                     <div class="formRight"><?php echo $form->textField($model, 'size'); ?></div>
                     <div class="fix"><?php echo $form->error($model, 'size'); ?></div>
                 </div>
+                <div class="rowElem">
+                    <label><?php echo $form->labelEx($model, 'merchant_id'); ?></label>
+
+                    <div class="formRight"><?php echo $form->dropDownList($model, 'merchant_id',CHtml::listData(User::model()->findAll(array('condition'=>'user_role=:role',"params"=>array(":role"=>7))), 'id', 'username')); ?></div>
+                    <div class="fix"><?php echo $form->error($model, 'merchant_id'); ?></div>
+                </div>
                 <div class="rowElem buttons">
                     <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
                 </div>

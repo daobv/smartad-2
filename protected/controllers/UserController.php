@@ -232,6 +232,10 @@ class UserController extends Controller
     }
     public function actionRevenue()
     {
+        if (Yii::app()->user->roleId == 3 || Yii::app()->user->roleId == 7) {
+            $this->redirect(Yii::app()->createUrl("merchant"));
+            exit();
+        }
         $userId = Yii::app()->user->id;
         $from = (Yii::app()->getRequest()->getParam("from") == null) ? date('ymd',strtotime('-7 days')) : Yii::app()->getRequest()->getParam("from");
         $to = (Yii::app()->getRequest()->getParam("to") ==  null) ? date('ymd',time()) : Yii::app()->getRequest()->getParam("to");

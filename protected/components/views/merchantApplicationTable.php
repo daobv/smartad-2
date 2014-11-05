@@ -10,7 +10,7 @@
         <th><i class="fa fa-mobile"> </i> Action</th>
         <th><i class="fa fa-cloud-download"> </i> Clicks</th>
         <th class="hidden-xs"> <i class="fa fa-quote-left"> </i> CR</th>
-        <th><i class="fa fa-dollar"> </i> Doanh Thu</th>
+        <th><i class="fa fa-dollar"> </i> Chi Phí Dự Tính</th>
     </tr>
     </thead>
     <tbody>

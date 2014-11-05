@@ -136,4 +136,25 @@ class Interaction extends Model
         }
         return 0;
     }
+    public function getMerchantInteraction($app_id,$from,$to){
+        $interaction = Interaction::model()->findBySql("SELECT SUM(day_click) as day_click,
+        SUM(success) as success, SUM(revenue) as revenue , date FROM ".$this->tableName()." WHERE app_id = ".$app_id. " AND date <= ".$to. " && date >= ".$from." GROUP BY date");
+        return $interaction;
+    }
+    public function getMonthRevenueByMerchant($merchant_id){
+
+        $startMonth = "1".date('ymd',time());
+        $endMonth = "31".date('ymd',time());
+        $sql = "SELECT SUM(revenue) as revenue  FROM ".$this->tableName()." WHERE ";
+        $merchant = User::model()->findByPk($merchant_id);
+       // if($merchant->user_role != 1){
+            $sql .= " app_id = ".$merchant_id. " AND ";
+       // }
+        $sql .= " date <= ".$endMonth. " && date >= ".$startMonth;
+        $interaction = Interaction::model()->findBySql($sql);
+        if($interaction->revenue){
+            return $interaction->revenue;
+        }
+        return 0;
+    }
 }
