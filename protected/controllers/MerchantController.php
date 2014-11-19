@@ -133,10 +133,11 @@ class MerchantController extends Controller
         }
         $from = (Yii::app()->getRequest()->getParam("from") == null) ? date('ymd',strtotime('-7 days')) : Yii::app()->getRequest()->getParam("from");
         $to = (Yii::app()->getRequest()->getParam("to") ==  null) ? date('ymd',time()) : Yii::app()->getRequest()->getParam("to");
-        $todayRevenue = Interaction::model()->getTodayRevenue();
+        $todayRevenue = 0;
         $dateParams = array();
         $clickArray = array();
         $actionArray = array();
+        $monthRevenue = 0;
         //$interactions = Interaction::model()->getInteractionByDate($userId,$from,$to);
         while($from <=  $to){
             $daySplit = str_split($from,2);
@@ -146,12 +147,16 @@ class MerchantController extends Controller
             foreach($application as $app){
                 $interaction = Interaction::model()->getMerchantInteraction($app->id,$from,$from);
                 if(!$interaction){
-
                     $sumClick += 0;
                     $sumAction += 0;
                 }else{
                      $sumClick += (int)$interaction->day_click;
                      $sumAction += (int)$interaction->success;
+                    $monthRevenue += $interaction->success*$app->merchant_price;
+                    if($from == $to){
+                        $todayRevenue += $interaction->success*$app->merchant_price;
+                    }
+
                 }
             }
             $clickArray[] = $sumClick;
@@ -160,13 +165,11 @@ class MerchantController extends Controller
             $dateParam = $date."-".$daySplit[1]."-".$daySplit[2];
             $from = date('ymd',(strtotime('+1 days', strtotime($dateParam))));
         }
-        $monthRevenue = Interaction::model()->getMonthRevenueByMerchant($userId);
+
         $this->render('index',array('todayRevenue'=>$todayRevenue,
             'dateParams'=>$dateParams,'clickArray'=>$clickArray,
             'actionArray'=>$actionArray,
             'monthRevenue'=>$monthRevenue));
-        // $this->redirect('/');
-
 	}
 
 	/**

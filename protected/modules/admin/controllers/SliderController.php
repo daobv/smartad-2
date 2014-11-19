@@ -61,9 +61,10 @@ class SliderController extends Controller
             $uploadedFile  = CUploadedFile::getInstance($model,'image_url');
             $newPath = $model->saveImage($imageName);
             $uploadedFile->saveAs($newPath);
+            chmod($newPath,0777);
             $tokens = explode('/', $newPath);
             $imageUrlPath = $tokens[sizeof($tokens)-3]."/".$tokens[sizeof($tokens)-2]."/".$tokens[sizeof($tokens)-1];
-            $model->image_url =  Setting::getSetting ('site_url')."/".$imageUrlPath;
+            $model->image_url =  Yii::app()->getBaseUrl(true) . '/'.$imageUrlPath;
 			if($model->save())
 				$this->redirect(array('admin'));
 		}
@@ -87,9 +88,17 @@ class SliderController extends Controller
 
 		if(isset($_POST['Slider']))
 		{
-			$model->attributes=$_POST['Slider'];
-			if($model->save())
-				$this->redirect(array('admin'));
+            $model->attributes=$_POST['Slider'];
+            $imageName = $_FILES['Slider']['name']['image_url'];
+            $uploadedFile  = CUploadedFile::getInstance($model,'image_url');
+            $newPath = $model->saveImage($imageName);
+            $uploadedFile->saveAs($newPath);
+            chmod($newPath,0777);
+            $tokens = explode('/', $newPath);
+            $imageUrlPath = $tokens[sizeof($tokens)-3]."/".$tokens[sizeof($tokens)-2]."/".$tokens[sizeof($tokens)-1];
+            $model->image_url =  Yii::app()->getBaseUrl(true) . '/'.$imageUrlPath;
+            if($model->save())
+                $this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(

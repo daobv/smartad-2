@@ -1,7 +1,3 @@
-<h4 style="margin-top: 1px">
-    <i class="fa fa-star"></i>
-    Danh Sách Ứng Dụng
-</h4>
 <table class="table table-striped table-bordered table-hover">
     <thead>
     <tr>

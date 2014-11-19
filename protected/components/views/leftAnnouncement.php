@@ -1,6 +1,6 @@
 <div class="content-news-db">
     <div class="news-dansboad">
-        <h4><i class="fa fa-list "> </i> Thông Báo </h4>
+        <h4 style="margin-top: 0px;"><i class="fa fa-list "> </i> Thông Báo </h4>
         <?php $this->widget('zii.widgets.grid.CGridView', array(
             'dataProvider'=>$model->search(),
             'htmlOptions'=>array('class'=>'list-news','id'=>'list-news','style'=>'padding-bottom:20px'),

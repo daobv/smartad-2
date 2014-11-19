@@ -22,7 +22,7 @@ class MerchantApplicationTable extends CPortlet
                     $data[$key]['day_click'] = 0;
                     $data[$key]['success'] = 0;
                 }else{
-                    $data[$key]['revenue'] =  $interactions->revenue;
+                    $data[$key]['revenue'] =  $app->merchant_price*$interactions->success;
                     $data[$key]['day_click'] = $interactions->day_click;
                     $data[$key]['success'] = $interactions->success;
                 }

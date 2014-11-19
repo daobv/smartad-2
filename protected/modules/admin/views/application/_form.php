@@ -166,7 +166,12 @@ $status = $model->isNewRecord ? 'Tạo Mới ' : 'Cập Nhật ';
                     <div class="formRight"><?php echo $form->textField($model, 'price'); ?></div>
                     <div class="fix"><?php echo $form->error($model, 'price'); ?></div>
                 </div>
+                <div class="rowElem">
+                    <label><?php echo $form->labelEx($model, 'merchant_price'); ?></label>
 
+                    <div class="formRight"><?php echo $form->textField($model, 'merchant_price'); ?></div>
+                    <div class="fix"><?php echo $form->error($model, 'merchant_price'); ?></div>
+                </div>
                 <div class="rowElem">
                     <label><?php echo $form->labelEx($model, 'size'); ?></label>
 

@@ -17,7 +17,6 @@
     <div class="logo"><a href="<?php echo Yii::app()->createUrl('admin');?>" title=""><img src="<?php echo Setting::getSetting("logo"); ?>" alt="" /></a></div>
     <div class="middleNav">
         <ul>
-            <li class="iOrders"><a href="#" title=""><span>Yêu cầu rút tiền</span></a><span class="numberMiddle">9</span></li>
             <li class="iStat"><a href="#" title=""><span>Biểu đồ thống kê</span></a></li>
             <li class="iUser"><a href="<?php echo Yii::app()->createUrl('admin/user/list');?>" title=""><span>Thành viên</span></a></li>
         </ul>

@@ -262,9 +262,26 @@ class UserController extends Controller
             $from = date('ymd',(strtotime('+1 days', strtotime($dateParam))));
         }
         $monthRevenue = Interaction::model()->getMonthRevenue($userId);
+        $weekRevenue = Interaction::model()->getWeekRevenue($userId);
+        $today = date('ymd',time());
+        $date = date("Y-m-d H:i:s");
+        $thisWeek = date("ymd",strtotime( '-1 week' , strtotime($date)));
+        $todayPercent=Interaction::model()->percentActionPerClick($userId,$today,$today);
+        $thisWeekPercent=Interaction::model()->percentActionPerClick($userId,$thisWeek,$today);
+        $thisMonth= Interaction::model()->percentActionPerClick($userId, "1".date('ymd',time()),$today);
+        $staticPage = new StaticPage();
+        $staticPage->type =1;
+        $staticPage->static_type = "page";
+        $staticPage->boolean = 1;
+        $staticPage->search();
         $this->render('revenue',array('todayRevenue'=>$todayRevenue,
             'dateParams'=>$dateParams,'clickArray'=>$clickArray,
             'actionArray'=>$actionArray,
+            'weekRevenue'=>$weekRevenue,
+            'todayPercent'=>$todayPercent,
+            'thisWeekPercent'=>$thisWeekPercent,
+            'thisMonth'=>$thisMonth,
+            'staticPage'=>$staticPage,
             'monthRevenue'=>$monthRevenue));
        // $this->redirect('/');
     }

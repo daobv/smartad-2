@@ -1,8 +1,9 @@
-<div class="container">
-    <div class="row">
+
     <ul class="breadcrumb">
-        <li><a href="<?php echo Yii::app()->getBaseUrl(true) ?>">Trang chủ</a> <span class="divider"></span></li>
-        <li class="active"></li>
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="/">Home</a>
+        </li>
+        <li>Dashboard</li>
     </ul>
-    </div>
-</div>
+

@@ -127,10 +127,25 @@ class Interaction extends Model
         SUM(success) as success, SUM(revenue) as revenue , date FROM ".$this->tableName()." WHERE user_id = ".$user_id. " AND date <= ".$to. " && date >= ".$from." GROUP BY date");
         return $interaction;
     }
+    public function percentActionPerClick($user_id,$from,$to){
+        $interaction = Interaction::model()->findBySql("SELECT SUM(day_click) as day_click,
+        SUM(success) as success, SUM(revenue) as revenue , date FROM ".$this->tableName()." WHERE user_id = ".$user_id. " AND date <= ".$to. " && date >= ".$from." GROUP BY date");
+        return $interaction;
+    }
     public function getMonthRevenue($user_id){
         $startMonth = "1".date('ymd',time());
         $endMonth = "31".date('ymd',time());
         $interaction = Interaction::model()->findBySql("SELECT SUM(revenue) as revenue  FROM ".$this->tableName()." WHERE user_id = ".$user_id. " AND date <= ".$endMonth. " && date >= ".$startMonth);
+        if($interaction->revenue){
+            return $interaction->revenue;
+        }
+        return 0;
+    }
+    public function getWeekRevenue($user_id){
+        $today = date('ymd',time());
+        $date = date("Y-m-d H:i:s");
+        $startWeek = date("ymd",strtotime( '-1 week' , strtotime($date)));
+        $interaction = Interaction::model()->findBySql("SELECT SUM(revenue) as revenue  FROM ".$this->tableName()." WHERE user_id = ".$user_id. " AND date <= ".$today. " && date >= ".$startWeek);
         if($interaction->revenue){
             return $interaction->revenue;
         }
@@ -141,20 +156,5 @@ class Interaction extends Model
         SUM(success) as success, SUM(revenue) as revenue , date FROM ".$this->tableName()." WHERE app_id = ".$app_id. " AND date <= ".$to. " && date >= ".$from." GROUP BY date");
         return $interaction;
     }
-    public function getMonthRevenueByMerchant($merchant_id){
 
-        $startMonth = "1".date('ymd',time());
-        $endMonth = "31".date('ymd',time());
-        $sql = "SELECT SUM(revenue) as revenue  FROM ".$this->tableName()." WHERE ";
-        $merchant = User::model()->findByPk($merchant_id);
-       // if($merchant->user_role != 1){
-            $sql .= " app_id = ".$merchant_id. " AND ";
-       // }
-        $sql .= " date <= ".$endMonth. " && date >= ".$startMonth;
-        $interaction = Interaction::model()->findBySql($sql);
-        if($interaction->revenue){
-            return $interaction->revenue;
-        }
-        return 0;
-    }
 }
